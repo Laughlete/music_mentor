@@ -78,7 +78,7 @@ $(function(){
 
 
 		events:{
-			//TODO put events here
+			"click #newSong": "createNewSong"
 		},
 
 		initialize: function(){
@@ -103,6 +103,10 @@ $(function(){
 
 		addAll: function(){
 			Songs.each(this.addOne);
+		},
+
+		createNewSong: function(){
+			Songs.create();
 		}
 	})
 

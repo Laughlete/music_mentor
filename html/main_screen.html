@@ -2,14 +2,17 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="../css/main_screen.css"/>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.2/underscore-min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/0.9.2/backbone-min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/backbone-localstorage.js/1.0/backbone.localStorage-min.js"></script>
         <script src="../js/main_screen.js"></script>
     </head>
     <body>
         <div id="songList">
         	<ul>
-        		<li>song1</li>
-        		<li>song2</li>
         	</ul>
+        <input id="newSong" type="button" value="New Song"/>
         </div>
         <div id="songDetails">
         	<div id="recordingList">
@@ -25,6 +28,15 @@
 	        	</ul>
         	</div>
         </div>
+        <!--Underscore templates used by backbone-->
+        <!--http://underscorejs.org/#template-->
+        <script type="text/template" id="song-template">
+        	<%- title %>
+        </script>
+
+        <script type="text/template" id="song-collection-template">
+        	this is a test
+        </script>
     </body>
     
 </html>

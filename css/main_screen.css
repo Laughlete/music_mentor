@@ -29,3 +29,6 @@ div{
 	background-color:#AAFFAA;
 	float:right;
 }
+#songList ul{
+	list-style:none;
+}

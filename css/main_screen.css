@@ -1,0 +1,31 @@
+html,body{
+	width:100%;
+	padding:0px;
+	margin:0px;
+	background-color:blue;
+}
+div{
+	padding:0px;
+	margin:0px;
+}
+#songList{
+	width:25%;
+	background-color:#FF0000;
+	float:left;
+}
+#songDetails{
+	padding:2%;
+	width:71%;
+	background-color:#00FF00;
+	float:right;
+}
+#recordingList{
+	width:50%;
+	background-color:#FFAAAA;
+	float:left;
+}
+#compositionList{
+	width:50%;
+	background-color:#AAFFAA;
+	float:right;
+}

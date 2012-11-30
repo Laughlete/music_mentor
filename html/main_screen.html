@@ -12,13 +12,12 @@
         <div id="songList">
         	<ul>
         	</ul>
-        <input id="newSong" type="button" value="New Song"/>
+            <input id="newSong" type="button" value="New Song"/>
         </div>
         <div id="songDetails">
         	<div id="recordingList">
+                <input id="newRecording" type="button" value="New Recording"/>
 	        	<ul>
-	        		<li>recording1</li>
-	        		<li>recording2</li>
 	        	</ul>        		
         	</div>
         	<div id="compositionList">
@@ -32,6 +31,10 @@
         <!--http://underscorejs.org/#template-->
         <script type="text/template" id="song-template">
         	<%- title %>
+        </script>
+
+        <script type="text/template" id="recording-template">
+            <%- title %>
         </script>
     </body>
     

@@ -111,6 +111,3 @@ var SongListView = Backbone.View.extend({
 
 
 var SongsView = new SongListView;
-
-Songs.create({title:"yesterday"});
-Songs.create({title:"try again"});

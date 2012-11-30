@@ -33,7 +33,7 @@ div{
 	background-color:#AAFFAA;
 	float:right;
 }
-#songList ul{
+#songList ul, #recordingList ul{
 	list-style:none;
 }
 #newSong{

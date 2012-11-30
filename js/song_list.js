@@ -1,116 +1,116 @@
 //example: http://jsfiddle.net/garretpeterson/Eb8y4/
 
-	//Song Model
-	var Song = Backbone.Model.extend({
+//Song Model
+var Song = Backbone.Model.extend({
 
-		// Default attributes for the song
-		defaults: function(){
-			return {
-				title: "Yesterday",
-				order: Songs.nextOrder()
-			};
-		},
+	// Default attributes for the song
+	defaults: function(){
+		return {
+			title: "Yesterday",
+			order: Songs.nextOrder()
+		};
+	},
 
-		initialize: function(){
-			if(!this.get("title")){
-				this.set({"title": this.defaults.title});
-			}
-		},
-
-		rename: function(newTitle){
-			this.save({title: newTitle});
-		},
-
-		clear: function(){
-			this.destroy();
+	initialize: function(){
+		if(!this.get("title")){
+			this.set({"title": this.defaults.title});
 		}
-	});
+	},
 
-	//Song Collection
-	// uses *localStorage* instead of a remote server.
-	var SongList = Backbone.Collection.extend({
+	rename: function(newTitle){
+		this.save({title: newTitle});
+	},
 
-		model: Song,
+	clear: function(){
+		this.destroy();
+	}
+});
 
-		localStorage: new Store("songs-backbone"),
+//Song Collection
+// uses *localStorage* instead of a remote server.
+var SongList = Backbone.Collection.extend({
 
-		nextOrder: function() {
-			if (!this.length) return 1;
-			return this.last().get('order') + 1;
-		},
+	model: Song,
 
-		comparator: function(song){
-			return song.get('order');
-		}
-	});
+	localStorage: new Store("songs-backbone"),
 
-	var Songs = new SongList;
+	nextOrder: function() {
+		if (!this.length) return 1;
+		return this.last().get('order') + 1;
+	},
 
-	//Song View
-	var SongView = Backbone.View.extend({
+	comparator: function(song){
+		return song.get('order');
+	}
+});
 
-		tagName: "li",
+var Songs = new SongList;
 
-		template: _.template($('#song-template').html()),
+//Song View
+var SongView = Backbone.View.extend({
 
-		events: {
-			//TODO put events here
-		},
+	tagName: "li",
 
-		initialize: function(){
-			this.model.bind('change', this.render, this);
-			this.model.bind('destroy', this.remove, this);
-		},
+	template: _.template($('#song-template').html()),
 
-		render: function(){
-			this.$el.html(this.template(this.model.toJSON()));
-			return this;
-		}
+	events: {
+		//TODO put events here
+	},
 
-	});
+	initialize: function(){
+		this.model.bind('change', this.render, this);
+		this.model.bind('destroy', this.remove, this);
+	},
 
-	//SongList View
-	var SongListView = Backbone.View.extend({
+	render: function(){
+		this.$el.html(this.template(this.model.toJSON()));
+		return this;
+	}
 
-		el: $("#songList"),
+});
 
+//SongList View
+var SongListView = Backbone.View.extend({
 
-
-		events:{
-			"click #newSong": "createNewSong"
-		},
-
-		initialize: function(){
-
-			this.input = this.$("#newSong");
-
-			Songs.bind('add', this.addOne, this);
-			Songs.bind('reset', this.addAll, this);
-			Songs.bind('all', this.render, this);
-
-			this.ul = this.$("ul")
-		},
-
-		render: function(){
-
-		},
-
-		addOne: function(song){
-			var view = new SongView({model: song});
-			this.ul.append(view.render().el);
-		},
-
-		addAll: function(){
-			Songs.each(this.addOne);
-		},
-
-		createNewSong: function(){
-			Songs.create();
-		}
-	})
+	el: $("#songList"),
 
 
-	var SongsView = new SongListView;
 
-	Songs.create({title:"yesterday"});
-	Songs.create({title:"try again"});
+	events:{
+		"click #newSong": "createNewSong"
+	},
+
+	initialize: function(){
+
+		this.input = this.$("#newSong");
+
+		Songs.bind('add', this.addOne, this);
+		Songs.bind('reset', this.addAll, this);
+		Songs.bind('all', this.render, this);
+
+		this.ul = this.$("ul")
+	},
+
+	render: function(){
+
+	},
+
+	addOne: function(song){
+		var view = new SongView({model: song});
+		this.ul.append(view.render().el);
+	},
+
+	addAll: function(){
+		Songs.each(this.addOne);
+	},
+
+	createNewSong: function(){
+		Songs.create();
+	}
+})
+
+
+var SongsView = new SongListView;
+
+Songs.create({title:"yesterday"});
+Songs.create({title:"try again"});

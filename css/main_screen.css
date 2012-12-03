@@ -60,6 +60,7 @@ div{
 }
 #songList ul, #recordingList ul{
 	list-style:none;
+        cursor:pointer;
 }
 #newSong{
 	position:absolute;

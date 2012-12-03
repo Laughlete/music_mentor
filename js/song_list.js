@@ -136,8 +136,38 @@ $(function(){
 		},
 
 		createNewSong: function(){
-			var songName = prompt("Enter Song Name", "New Song")
-			Songs.create({title:songName});
+			function checkInput(){
+				if($("#songNameInput").val() == ""){
+					$("#songAddSave").attr("disabled", true);
+				} else{
+					$("#songAddSave").removeAttr("disabled");
+				}
+			}
+			$.colorbox({
+				inline: true, 
+				href: "#songAddPopup",
+				/* onComplete fires when the box finishes loading */
+				onComplete: function(){
+					/* clear the box, disable button */
+					$("#songNameInput").val("");
+					$("#songAddSave").attr("disabled", true);
+					
+					$("#songAddCancel").click(function(){
+						$.colorbox.close();
+					});
+					$("#songNameInput").change(function(){
+						checkInput();
+					});
+					$("#songNameInput").keypress(function(){
+						checkInput();
+					});
+					$("#songAddSave").click(function(){
+						var songName = $("#songNameInput").val();
+						Songs.create({title:songName});
+						$.colorbox.close();
+					});
+				}
+			});
 		}
 	})
 

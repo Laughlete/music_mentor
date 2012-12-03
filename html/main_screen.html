@@ -2,23 +2,26 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="../css/main_screen.css"/>
-        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script src="../lib/jquery-min-1-8-3.js"></script>
+        <script src="../lib/jquery.colorbox-min.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.2/underscore-min.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/0.9.2/backbone-min.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/backbone-localstorage.js/1.0/backbone.localStorage-min.js"></script>
         <script src="../js/main_screen.js"></script>
+        <script src="../js/recording_list.js"></script>
+        <script src="../js/song_list.js"></script>
     </head>
     <body>
         <div id="songList">
+            <div id="logo"></div>
         	<ul>
         	</ul>
-        <input id="newSong" type="button" value="New Song"/>
+            <input id="newSong" type="button" value="New Song"/>
         </div>
         <div id="songDetails">
         	<div id="recordingList">
+                <input id="newRecording" type="button" value="New Recording"/>
 	        	<ul>
-	        		<li>recording1</li>
-	        		<li>recording2</li>
 	        	</ul>        		
         	</div>
         	<div id="compositionList">
@@ -31,7 +34,14 @@
         <!--Underscore templates used by backbone-->
         <!--http://underscorejs.org/#template-->
         <script type="text/template" id="song-template">
-        	<%- title %>
+            <div class="song-view <%if(selected)print(' selected')%>">
+        	   <div class="songIcon"></div><%- title %>
+                <div <%if(!selected)print("class='hide'")%>>test stuff</div>
+            <div>
+        </script>
+
+        <script type="text/template" id="recording-template">
+            <%- title %>
         </script>
     </body>
     

@@ -41,8 +41,8 @@ $(function(){
 			musicMentor.hideSongDetails()
 		},
 
-		createRecording: function(){
-			this.get("recordings").create();
+		createRecording: function(newRecordingModel){
+			this.get("recordings").create(newRecordingModel);
 			Recordings.reset(this.get("recordings").models)
 		}
 	});
@@ -136,7 +136,8 @@ $(function(){
 		},
 
 		createNewSong: function(){
-			Songs.create();
+			var songName = prompt("Enter Song Name", "New Song")
+			Songs.create({title:songName});
 		}
 	})
 

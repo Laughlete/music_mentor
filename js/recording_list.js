@@ -94,7 +94,8 @@ $(function(){
 		},
 
 		createNewRecording: function(){
-			musicMentor.selectedSong.createRecording()
+			var recordingName = new Date();
+			musicMentor.selectedSong.createRecording({title: recordingName})
 		},
 
 		render: function(){

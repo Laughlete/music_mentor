@@ -1,6 +1,6 @@
 $(function(){
 	//Recording Model
-	var Recording = Backbone.Model.extend({
+	Recording = Backbone.Model.extend({
 
 		//default attributes for the recording
 		defaults: function(){
@@ -25,7 +25,7 @@ $(function(){
 		}
 	})
 
-	var RecordingList = Backbone.Collection.extend({
+	RecordingList = Backbone.Collection.extend({
 
 		model: Recording,
 
@@ -64,7 +64,7 @@ $(function(){
 
 	Recordings = new RecordingList;
 
-	var RecordingListView = Backbone.View.extend({
+	RecordingListView = Backbone.View.extend({
 
 		el: $("#recordingList"),
 
@@ -77,19 +77,31 @@ $(function(){
 			this.input = this.$("#newRecording");
 
 			Recordings.bind('add', this.addOne, this);
+			Recordings.bind('reset', this.addAll, this);
+			Recordings.bind('all', this.render, this);
 
 			this.ul = this.$("ul")
+			that = this
 		},
 
 		addOne: function(recording){
 			var view = new RecordingView({model:recording});
-			this.ul.append(view.render().el);
+			that.ul.append(view.render().el);
+		},
+
+		addAll: function(){
+			Recordings.each(this.addOne)
 		},
 
 		createNewRecording: function(){
-			Recordings.create();
+			musicMentor.selectedSong.createRecording()
+		},
+
+		render: function(){
+			$("#recordingList ul > li").remove()
+			that.addAll()
 		}
 	})
 
-	var RecordingsView = new RecordingListView;
+	RecordingsView = new RecordingListView;
 })

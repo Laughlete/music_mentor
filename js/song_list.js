@@ -16,6 +16,7 @@ $(function(){
 			if(!this.get("title")){
 				this.set({"title": this.defaults.title});
 			}
+			this.set({"recordings": new RecordingList})
 		},
 
 		rename: function(newTitle){
@@ -26,8 +27,23 @@ $(function(){
 			this.destroy();
 		},
 
-		toggleSelect: function(){
-			this.set({"selected": !this.get("selected")});
+		select: function(){
+			musicMentor.selectedSong = this
+			Recordings.reset(this.get("recordings").models)
+			this.set({"selected": true})
+			musicMentor.showSongDetails()
+		},
+
+		unSelect: function(){
+			musicMentor.selectedSong = undefined
+			this.set({"selected": false})
+			Recordings.reset({});
+			musicMentor.hideSongDetails()
+		},
+
+		createRecording: function(){
+			this.get("recordings").create();
+			Recordings.reset(this.get("recordings").models)
 		}
 	});
 
@@ -76,7 +92,10 @@ $(function(){
 		selectSong: function(){
 			var selectedPrev = this.model.get("selected");
 			Songs.each(function(song){song.set({"selected":false})})
-			this.model.set({"selected":!selectedPrev})
+			if(selectedPrev)
+				this.model.unSelect()
+			else
+				this.model.select()
 		}
 
 	});

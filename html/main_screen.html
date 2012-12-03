@@ -11,6 +11,7 @@
     </head>
     <body>
         <div id="songList">
+            <div id="logo"></div>
         	<ul>
         	</ul>
             <input id="newSong" type="button" value="New Song"/>
@@ -32,7 +33,7 @@
         <!--http://underscorejs.org/#template-->
         <script type="text/template" id="song-template">
             <div class="song-view">
-        	   <%- title %>
+        	   <div class="songIcon"></div><%- title %>
                 <div <%if(!selected)print("class='hide'")%>>test stuff</div>
             <div>
         </script>

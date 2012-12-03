@@ -9,6 +9,9 @@ div{
 	padding:0px;
 	margin:0px;
 }
+.hide{
+	display:none;
+}
 #songList{
 	width:25%;
 	height:100%;

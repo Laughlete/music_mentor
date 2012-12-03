@@ -1,113 +1,126 @@
 //example: http://jsfiddle.net/garretpeterson/Eb8y4/
+$(function(){
+	//Song Model
+	var Song = Backbone.Model.extend({
 
-//Song Model
-var Song = Backbone.Model.extend({
+		// Default attributes for the song
+		defaults: function(){
+			return {
+				title: "Yesterday",
+				order: Songs.nextOrder(),
+				selected: false
+			};
+		},
 
-	// Default attributes for the song
-	defaults: function(){
-		return {
-			title: "Yesterday",
-			order: Songs.nextOrder()
-		};
-	},
+		initialize: function(){
+			if(!this.get("title")){
+				this.set({"title": this.defaults.title});
+			}
+		},
 
-	initialize: function(){
-		if(!this.get("title")){
-			this.set({"title": this.defaults.title});
+		rename: function(newTitle){
+			this.save({title: newTitle});
+		},
+
+		clear: function(){
+			this.destroy();
+		},
+
+		toggleSelect: function(){
+			this.set({"selected": !this.get("selected")});
 		}
-	},
+	});
 
-	rename: function(newTitle){
-		this.save({title: newTitle});
-	},
+	//Song Collection
+	// uses *localStorage* instead of a remote server.
+	var SongList = Backbone.Collection.extend({
 
-	clear: function(){
-		this.destroy();
-	}
-});
+		model: Song,
 
-//Song Collection
-// uses *localStorage* instead of a remote server.
-var SongList = Backbone.Collection.extend({
+		localStorage: new Store("songs-backbone"),
 
-	model: Song,
+		nextOrder: function() {
+			if (!this.length) return 1;
+			return this.last().get('order') + 1;
+		},
 
-	localStorage: new Store("songs-backbone"),
+		comparator: function(song){
+			return song.get('order');
+		}
+	});
 
-	nextOrder: function() {
-		if (!this.length) return 1;
-		return this.last().get('order') + 1;
-	},
+	var Songs = new SongList;
 
-	comparator: function(song){
-		return song.get('order');
-	}
-});
+	//Song View
+	var SongView = Backbone.View.extend({
 
-var Songs = new SongList;
+		tagName: "li",
 
-//Song View
-var SongView = Backbone.View.extend({
+		template: _.template($('#song-template').html()),
 
-	tagName: "li",
+		events: {
+			"click .song-view": "selectSong"
+			//TODO put events here
+		},
 
-	template: _.template($('#song-template').html()),
+		initialize: function(){
+			this.model.bind('change', this.render, this);
+			this.model.bind('destroy', this.remove, this);
+		},
 
-	events: {
-		//TODO put events here
-	},
+		render: function(){
+			this.$el.html(this.template(this.model.toJSON()));
+			return this;
+		},
 
-	initialize: function(){
-		this.model.bind('change', this.render, this);
-		this.model.bind('destroy', this.remove, this);
-	},
+		selectSong: function(){
+			var selectedPrev = this.model.get("selected");
+			Songs.each(function(song){song.set({"selected":false})})
+			this.model.set({"selected":!selectedPrev})
+		}
 
-	render: function(){
-		this.$el.html(this.template(this.model.toJSON()));
-		return this;
-	}
+	});
 
-});
+	//SongList View
+	var SongListView = Backbone.View.extend({
 
-//SongList View
-var SongListView = Backbone.View.extend({
-
-	el: $("#songList"),
+		el: $("#songList"),
 
 
 
-	events:{
-		"click #newSong": "createNewSong"
-	},
+		events:{
+			"click #newSong": "createNewSong"
+		},
 
-	initialize: function(){
+		initialize: function(){
 
-		this.input = this.$("#newSong");
+			this.input = this.$("#newSong");
 
-		Songs.bind('add', this.addOne, this);
-		Songs.bind('reset', this.addAll, this);
-		Songs.bind('all', this.render, this);
+			Songs.bind('add', this.addOne, this);
+			Songs.bind('reset', this.addAll, this);
+			Songs.bind('all', this.render, this);
 
-		this.ul = this.$("ul")
-	},
+			this.ul = this.$("ul")
+		},
 
-	render: function(){
+		render: function(){
 
-	},
+		},
 
-	addOne: function(song){
-		var view = new SongView({model: song});
-		this.ul.append(view.render().el);
-	},
+		addOne: function(song){
+			var view = new SongView({model: song});
+			this.ul.append(view.render().el);
+		},
 
-	addAll: function(){
-		Songs.each(this.addOne);
-	},
+		addAll: function(){
+			Songs.each(this.addOne);
+		},
 
-	createNewSong: function(){
-		Songs.create();
-	}
+		createNewSong: function(){
+			Songs.create();
+		}
+	})
+
+
+	var SongsView = new SongListView;
 })
-
-
-var SongsView = new SongListView;

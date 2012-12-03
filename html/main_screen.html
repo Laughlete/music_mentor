@@ -2,11 +2,12 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="../css/main_screen.css"/>
-        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script src="../lib/jquery-min-1-8-3.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.2/underscore-min.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/0.9.2/backbone-min.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/backbone-localstorage.js/1.0/backbone.localStorage-min.js"></script>
-        <script src="../js/main_screen.js"></script>
+        <script src="../js/recording_list.js"></script>
+        <script src="../js/song_list.js"></script>
     </head>
     <body>
         <div id="songList">
@@ -30,7 +31,10 @@
         <!--Underscore templates used by backbone-->
         <!--http://underscorejs.org/#template-->
         <script type="text/template" id="song-template">
-        	<%- title %>
+            <div class="song-view">
+        	   <%- title %>
+                <div <%if(!selected)print("class='hide'")%>>test stuff</div>
+            <div>
         </script>
 
         <script type="text/template" id="recording-template">

@@ -65,7 +65,8 @@ div{
 #newSong{
 	position:absolute;
 	bottom: 20px;
-
+	left: 50%;
+	margin-left: -80px;
 }
 #songAddPopup{
 	padding:10px;

@@ -114,7 +114,7 @@ $(function(){
 		initialize: function(){
 
 			this.input = this.$("#newSong");
-
+		
 			Songs.bind('add', this.addOne, this);
 			Songs.bind('reset', this.addAll, this);
 			Songs.bind('all', this.render, this);

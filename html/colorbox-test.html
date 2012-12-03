@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Colorbox Test</title>
+		<link rel="stylesheet" type="text/css" href="../css/colorbox.css">
+		<script type="text/javascript" src="../js/jquery-1.8.3.min.js"></script>
+		<script type="text/javascript" src="../js/jquery.colorbox-min.js"></script>
+
+		<script type="text/javascript">
+		$(document).ready(function(){
+			$("#button1").colorbox({inline:true, href:"#inline_content"});
+		});
+		</script>
+	</head>
+	<body>	
+		<p>
+			<button type="button" id="button1">Push me</button>
+		</p>
+		
+		<!-- This contains the hidden content for the colorbox -->
+		<div style='display:none'>
+			<div id='inline_content' style='padding:10px; background:#a2b6bf;'>
+				<p>Enter Song Name</p>
+				<input type="text" id="songNameInput">
+				<p><button type="button">Save</button><button type="button" onclick="$.colorbox.close()">Cancel</button></p>
+			</div>
+		</div>
+	</body>
+</html>

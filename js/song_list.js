@@ -1,5 +1,5 @@
 //example: http://jsfiddle.net/garretpeterson/Eb8y4/
-
+$(function(){
 	//Song Model
 	var Song = Backbone.Model.extend({
 
@@ -7,7 +7,8 @@
 		defaults: function(){
 			return {
 				title: "Yesterday",
-				order: Songs.nextOrder()
+				order: Songs.nextOrder(),
+				selected: false
 			};
 		},
 
@@ -15,6 +16,7 @@
 			if(!this.get("title")){
 				this.set({"title": this.defaults.title});
 			}
+			this.set({"recordings": new RecordingList})
 		},
 
 		rename: function(newTitle){
@@ -23,6 +25,25 @@
 
 		clear: function(){
 			this.destroy();
+		},
+
+		select: function(){
+			musicMentor.selectedSong = this
+			Recordings.reset(this.get("recordings").models)
+			this.set({"selected": true})
+			musicMentor.showSongDetails()
+		},
+
+		unSelect: function(){
+			musicMentor.selectedSong = undefined
+			this.set({"selected": false})
+			Recordings.reset({});
+			musicMentor.hideSongDetails()
+		},
+
+		createRecording: function(newRecordingModel){
+			this.get("recordings").create(newRecordingModel);
+			Recordings.reset(this.get("recordings").models)
 		}
 	});
 
@@ -54,6 +75,7 @@
 		template: _.template($('#song-template').html()),
 
 		events: {
+			"click .song-view": "selectSong"
 			//TODO put events here
 		},
 
@@ -65,6 +87,15 @@
 		render: function(){
 			this.$el.html(this.template(this.model.toJSON()));
 			return this;
+		},
+
+		selectSong: function(){
+			var selectedPrev = this.model.get("selected");
+			Songs.each(function(song){song.set({"selected":false})})
+			if(selectedPrev)
+				this.model.unSelect()
+			else
+				this.model.select()
 		}
 
 	});
@@ -105,12 +136,11 @@
 		},
 
 		createNewSong: function(){
-			Songs.create();
+			var songName = prompt("Enter Song Name", "New Song")
+			Songs.create({title:songName});
 		}
 	})
 
 
 	var SongsView = new SongListView;
-
-	Songs.create({title:"yesterday"});
-	Songs.create({title:"try again"});
+})

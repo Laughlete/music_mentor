@@ -1,7 +1,19 @@
 $(function(){
-	$.getScript("../js/recording_list.js", function(){
-		$.getScript("../js/song_list.js", function(){
+	musicMentor = {
+		selectedSong: undefined,
 
-		})
-	})
+		showSongDetails: function(){
+			$("#songDetails").show()
+		},
+
+		hideSongDetails: function(){
+			$("#songDetails").hide()
+		},
+
+		setSelectedSong: function(song){
+			this.selectedSong = song;
+		}
+
+	}
+	musicMentor.hideSongDetails()
 })

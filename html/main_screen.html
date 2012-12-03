@@ -17,15 +17,14 @@
             <div id="logo"></div>
         	<ul >
         	</ul>
-            <input id="newSong" type="button" value="New Song"/>
+            <img id="newSong" class="largeButton" src="../imgs/button_new_song.png" />
 			<!-- This contains the hidden content for the colorbox -->
 			<div style='display:none'>
 				<div id='songAddPopup'>
-					<h2>Enter Song Name</h2>
-					<input type="text" id="songNameInput" />
-					<br>
-					<input id="songAddSave" type="button" value="Save" />
-					<input id="songAddCancel" type="button" value= "Cancel" />
+					<input class="default" type="text" id="songNameInput" value="New Song Name" />
+					<br><br>
+					<img id="songAddSave" src="../imgs/button_save.png" class="largeButton" />
+					<img id="songAddCancel" src="../imgs/button_cancel.png" class="largeButton" />
 				</div>
 			</div>
         </div>
@@ -45,7 +44,7 @@
         <!--Underscore templates used by backbone-->
         <!--http://underscorejs.org/#template-->
         <script type="text/template" id="song-template">
-            <div class="song-view <%if(selected)print(' selected')%>">
+            <div class="song-view <%if(selected)print("selected")%>">
         	   <div class="songIcon"></div><%- title %>
                 <div <%if(!selected)print("class='hide'")%>>test stuff</div>
             <div>

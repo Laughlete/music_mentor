@@ -40,21 +40,22 @@ div{
 	float:left;
 	position:relative;
 }
+#songList .selected{
+	background-color:#A2B6BF;
+}
 #songDetails{
 	padding:2%;
 	width:71%;
 	height:100%;
-	background-color:#00FF00;
+	background-color:#A2B6BF;
 	float:right;
 }
 #recordingList{
 	width:50%;
-	background-color:#FFAAAA;
 	float:left;
 }
 #compositionList{
 	width:50%;
-	background-color:#AAFFAA;
 	float:right;
 }
 #songList ul, #recordingList ul{

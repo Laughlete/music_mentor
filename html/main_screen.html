@@ -34,7 +34,7 @@
         <!--Underscore templates used by backbone-->
         <!--http://underscorejs.org/#template-->
         <script type="text/template" id="song-template">
-            <div class="song-view">
+            <div class="song-view <%if(selected)print(' selected')%>">
         	   <div class="songIcon"></div><%- title %>
                 <div <%if(!selected)print("class='hide'")%>>test stuff</div>
             <div>

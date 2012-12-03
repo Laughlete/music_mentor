@@ -1,0 +1,137 @@
+
+<style>
+	body{
+		font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	}
+	
+	#topBar{
+		width: 95%;
+		height: 20%;
+		background-color:A2B6BF;
+		padding: 2%;
+	}
+	
+	#compositionArea{
+		width:95%;
+		height:75%;
+		background-color:404A4E;
+		padding: 2%;
+	}
+	
+	#playback{
+		height: 75%;
+		padding-left:7%;
+	}
+	
+	#songStructure{
+		height: 25%;
+		padding-left: 5%;
+	}
+	
+	#instruments{
+		height: 25%;
+		padding-left:7%;
+	}
+	
+	#titles{
+		font-size:larger;
+		padding-left: 5%;
+		height: 75%;
+	}
+	
+	#logo{
+		width:10%;
+		height:100%;
+		display:block;
+	}
+	
+	#first{
+		width:75%;
+	}
+	
+	#second{
+		float:right;
+		width: 90%
+	}
+	
+	#third{
+		float:right;
+		width:25%;
+	}
+	
+	#composition{
+		width:75%;
+		height:100%;
+		background-color:#FFF;
+		background-image:url(CompositionBackground.png);
+		overflow : auto;
+	}
+	
+	#rhythm{
+		width:23%;
+		height: 100%;
+		background-color:#999;
+		float:right;
+	}
+	
+	#addRhythm{
+		background-color:#673E18;
+	}
+	
+	select{
+		background-color: A2B6BF;
+		font-size:large;
+		width:40%;
+		text-align:center;
+	}
+	
+	option{
+		background-color: A2B6BF;
+	}
+	
+</style>
+
+<html>
+	<body>
+        <div id = "topBar">
+        	<div id="third">
+                <div id = "playback">
+                </div>
+                <div id = "instruments">
+                	<select>
+                        <option> Piano </option>
+                        <option> Guitar </option>
+                    </select>
+                </div>
+              </div>
+        	<div id = "first">
+                <div id = "second">
+                    <div id = "titles">
+                    	Song Title Composition Title
+                    </div>
+                    <div id = "songStructure">
+                    <select>
+                        <option> Verse </option>
+                        <option> Chorus </option>
+                        <option> Bridge </option>
+                    </select>
+                    <select>
+                        <option> VCVC </option>
+                        <option> VCVCBC </option>
+                    </select>
+                    </div>
+                </div>
+                <div id = "logo">
+                	<a> <img src = "Logo.png" height = 100%> </a>
+                </div>
+            </div>
+        </div>
+        <div id = "compositionArea">
+            <div id = "rhythm">
+            	<button id ="addRhythm"> Add Rhythm </button>
+            </div>
+            <div id ="composition">
+            </div>
+        </div>
+    </body>
+</html>

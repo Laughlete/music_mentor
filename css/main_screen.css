@@ -127,12 +127,16 @@ div.song-view{
     margin:auto;
 }
 #recordingList{
-	width:50%;
+	width:48%;
 	float:left;
+	margin-left:1%;
+	margin-right:1%;
 }
 #compositionList{
-	width:50%;
+	width:48%;
 	float:right;
+	margin-left:1%;
+	margin-right:1%;
 }
 #songList ul, #recordingList ul, #compositionList ul{
 	list-style:none;
@@ -169,12 +173,27 @@ img.largeButton{
 	max-height:48px;
 	cursor:pointer;
 }
+
+#recordingList h1,#compositionList h1{
+	font-size:4vw;
+	text-align:center;
+}
+#newRecording,#newComposition{
+	display:block;
+	max-width:90%;
+	margin-left:auto;
+	margin-right:auto;
+}
 input.default{
 	color:gray;
 	font-style:italic;
 }
 
 /*recording template styling*/
+.recording-template{
+	margin-top:10px;
+	margin-bottom:10px;
+}
 .recordingIcon{
 	float:left;
 	max-height:1em;
@@ -182,7 +201,7 @@ input.default{
 }
 .recordingTitle{
 	display:inline-block;
-	width:80%;
+	width:82%;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow:ellipsis;

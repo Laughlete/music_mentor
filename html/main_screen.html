@@ -50,7 +50,13 @@
         <script type="text/template" id="song-template">
             <div class="song-view <%if(selected)print("selected")%>">
         	   <div class="songIcon"></div><%- title %>
-                <div <%if(!selected)print("class='hide'")%>>test stuff</div>
+                    <img id="songArrowBtn" src="../imgs/button_arrow_down_brown.png" align="right"/>
+                    <br><br><br>
+                <div <%if(!selected)print("class='hide'")%>>
+                    <img src="../imgs/button_rename.png" width="85" height="30"/>
+                    <img src="../imgs/button_.png" width="30" height="30"/>
+                    <img src="../imgs/button_X_brown.png" widht="30" height="30"/>
+                </div>
             <div>
         </script>
 

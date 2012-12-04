@@ -84,6 +84,10 @@ div{
 	left: 50%;
 	margin-left: -80px;
 }
+#songArrowBtn{
+    width:15%;
+    padding-right: 20px;
+}
 #songAddPopup{
 	padding:10px;
 	background:#a2b6bf;

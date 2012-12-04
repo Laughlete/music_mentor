@@ -137,6 +137,7 @@ $(function(){
 			Songs.bind('all', this.render, this);
 
 			this.ul = this.$("ul")
+			Songs.create({title:"New Song 1"});
 		},
 
 		render: function(){

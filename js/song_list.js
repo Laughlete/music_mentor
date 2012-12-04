@@ -16,8 +16,10 @@ $(function(){
 			if(!this.get("title")){
 				this.set({"title": this.defaults.title});
 			}
-			this.set({"recordings": new RecordingList})
-			this.set({"compositions": new CompositionList})
+			if(this.get("recordings") === undefined)
+				this.set({"recordings": new RecordingList})
+			if(this.get("compositions") === undefined)
+				this.set({"compositions": new CompositionList})
 		},
 
 		rename: function(newTitle){
@@ -70,6 +72,10 @@ $(function(){
 
 		comparator: function(song){
 			return song.get('order');
+		},
+
+		insertSong: function(order, song){
+			var newSong = new Song(song)
 		}
 	});
 
@@ -83,7 +89,7 @@ $(function(){
 		template: _.template($('#song-template').html()),
 
 		events: {
-			"click .song-view": "selectSong"
+			"click .song-title": "selectSong"
 			//TODO put events here
 		},
 
@@ -116,7 +122,10 @@ $(function(){
 
 
 		events:{
-			"click #newSong": "createNewSong"
+			"click #newSong": "createNewSong",
+			"click #renameSong": "renameSong",
+			"click #duplicateSong": "duplicateSong",
+			"click #removeSong": "removeSong"
 		},
 
 		initialize: function(){
@@ -143,13 +152,13 @@ $(function(){
 			Songs.each(this.addOne);
 		},
 
-		createNewSong: function(){
+		getSongNameDialog: function(action){
 			function checkInput(){
 				$("#songAddSave").unbind("click");
 				if($("#songNameInput").val() != $("#songNameInput").defaultValue){
 					$("#songAddSave").click(function(){
 						var songName = $("#songNameInput").val();
-						Songs.create({title:songName});
+						action(songName);
 						$.colorbox.close();
 					});
 				}
@@ -183,6 +192,45 @@ $(function(){
 					
 				}
 			});
+
+		},
+
+		createNewSong: function(){
+			this.getSongNameDialog(function(songName){
+				Songs.create({title:songName});
+			})
+		},
+
+		renameSong: function(){
+			this.getSongNameDialog(function(songName){
+				musicMentor.selectedSong.rename(songName)
+			})
+		},
+
+		duplicateSong: function(){
+			var newOrder = musicMentor.selectedSong.get("order") + 1;
+			var newTitle = "copy of " + musicMentor.selectedSong.get("title")
+			var newSelected = false
+			var newRecordingList = undefined
+			if(musicMentor.selectedSong.get("recordings") != undefined)
+				newRecordingList = new RecordingList(musicMentor.selectedSong.get("recordings").models)
+			var newCompositionList = undefined
+			if(musicMentor.selectedSong.get("compositions") != undefined)
+				newCompositionList = new CompositionList(musicMentor.selectedSong.get("compositions").models)
+			Songs.create({title:newTitle, selected:newSelected, recordings:newRecordingList, compositions:newCompositionList})
+
+			Songs.each(function(song){
+				if(song.get("order") >= newOrder)
+					song.set({order:song.get("order")+1})
+				if(song == Songs.last())
+					song.set({"order": newOrder})
+
+			})
+		},
+
+		removeSong: function(){
+			musicMentor.selectedSong.clear()
+			musicMentor.setSelectedSong(undefined)
 		}
 	})
 

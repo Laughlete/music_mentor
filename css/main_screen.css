@@ -32,7 +32,13 @@ ul{
     height:auto;
     margin-right:3px;
 }
+.song-title{
+	position:relative;
+	float:left;
+}
 .song-view{
+	display:block;
+	clear:both;
 	margin-left:10px;
 	margin-bottom:20px;
 	padding-left:10px;
@@ -100,6 +106,7 @@ ul{
 #songArrowBtn{
     width:15%;
     padding-right: 20px;
+    max-height:1em;
 }
 #songAddPopup{
 	padding:10px;

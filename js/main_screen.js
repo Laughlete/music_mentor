@@ -13,6 +13,10 @@ $(function(){
 		},
 
 		setSelectedSong: function(song){
+			if(song === undefined)
+				this.hideSongDetails()
+			else
+				this.showSongDetails()
 			this.selectedSong = song;
 		}
 

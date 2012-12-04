@@ -17,6 +17,7 @@ $(function(){
 				this.set({"title": this.defaults.title});
 			}
 			this.set({"recordings": new RecordingList})
+			this.set({"compositions": new CompositionList})
 		},
 
 		rename: function(newTitle){
@@ -30,6 +31,7 @@ $(function(){
 		select: function(){
 			musicMentor.selectedSong = this
 			Recordings.reset(this.get("recordings").models)
+			Compositions.reset(this.get("compositions").models)
 			this.set({"selected": true})
 			musicMentor.showSongDetails()
 		},
@@ -38,12 +40,18 @@ $(function(){
 			musicMentor.selectedSong = undefined
 			this.set({"selected": false})
 			Recordings.reset({});
+			Compositions.reset({})
 			musicMentor.hideSongDetails()
 		},
 
 		createRecording: function(newRecordingModel){
 			this.get("recordings").create(newRecordingModel);
 			Recordings.reset(this.get("recordings").models)
+		},
+
+		createComposition: function(newCompositionModel){
+			this.get("compositions").create(newCompositionModel);
+			Compositions.reset(this.get("compositions").models);
 		}
 	});
 

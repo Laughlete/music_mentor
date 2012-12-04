@@ -14,7 +14,7 @@ div{
 	display:none;
 }
 #logo{
-	background-image:url(../imgs/logo_dark.PNG);
+	background-image:url(../imgs/logo_dark.png);
 	background-size:50px 75px;
 	background-repeat:no-repeat;
 	width:50px;
@@ -24,10 +24,10 @@ div{
 }
 .songIcon{
 	display:inline-block;
-	background-image:url(../imgs/notes.PNG);
-	background-size:10px 15px;
+	background-image:url(../imgs/image_musical_notes.png);
+	background-size:12px 15px;
 	background-repeat:no-repeat;
-	width:10px;
+	width:12px;
 	height:15px;
 	border:0px;
 	margin:3px;

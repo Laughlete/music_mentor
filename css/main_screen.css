@@ -14,7 +14,7 @@ div{
 	display:none;
 }
 #logo{
-	background-image:url(../imgs/logo.PNG);
+	background-image:url(../imgs/logo_dark.PNG);
 	background-size:50px 75px;
 	background-repeat:no-repeat;
 	width:50px;
@@ -50,6 +50,20 @@ div{
 	background-color:#A2B6BF;
 	float:right;
 }
+#preSongDetails{
+	padding:2%;
+	width:71%;
+	height:100%;
+	background-color:#A2B6BF;
+	float:right;
+}
+
+#preSongDetails img{
+    margin: auto;
+    width:80%;
+    margin-top:100px;
+    display:block;
+}
 #recordingList{
 	width:50%;
 	float:left;
@@ -65,5 +79,7 @@ div{
 #newSong{
 	position:absolute;
 	bottom: 20px;
-
+        left: 5px;
+        width:50%;
+        height:5%;
 }

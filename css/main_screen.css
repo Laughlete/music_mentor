@@ -50,6 +50,14 @@ ul{
 }
 .song-controls{
 	padding-top:15px;
+	display:inline-block;
+	background-image:url(../imgs/notes.PNG);
+	background-size:10px 15px;
+	background-repeat:no-repeat;
+	width:10px;
+	height:15px;
+	border:0px;
+	margin:3px 8px 0 3px;
 }
 #songList{
 	width:25%;

@@ -3,17 +3,14 @@ $(function(){
 		selectedSong: undefined,
 
 		showSongDetails: function(){
-                        $("#preSongDetails").hide()
+			$("#preSongDetails").hide()
 			$("#songDetails").show()
 		},
 
 		hideSongDetails: function(){
 			$("#songDetails").hide()
+			$("#preSongDetails").show()
 		},
-                
-                showPreSongDetails: function(){
-                        $("#PreSongDetails").show()
-                },
 
 		setSelectedSong: function(song){
 			this.selectedSong = song;
@@ -21,5 +18,4 @@ $(function(){
 
 	}
 	musicMentor.hideSongDetails()
-        musicMentor.showPreSongDetails()
 })

@@ -10,8 +10,8 @@
         <script src="../lib/backbone.localStorage-min.js"></script>
         <script src="../js/main_screen.js"></script>
         <script src="../js/recording_list.js"></script>
-        <script src="../js/song_list.js"></script>
         <script src="../js/composition_list.js"></script>
+        <script src="../js/song_list.js"></script>
     </head>
     <body>
         <div id="songList">
@@ -61,7 +61,11 @@
         </script>
 
         <script type="text/template" id="recording-template">
-            <%- title %>
+            <span class="recording1stLine">
+                <img class="recordingIcon" src="../imgs/image_microphone.png">
+                <span class="recordingTitle"><%- title %></span>
+                <img class="recordingArrowBtn" src="../imgs/button_arrow_down_brown.png">
+            </span>
         </script>
 
         <script type="text/template" id="composition-template">

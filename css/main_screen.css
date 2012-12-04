@@ -173,3 +173,21 @@ input.default{
 	color:gray;
 	font-style:italic;
 }
+
+/*recording template styling*/
+.recordingIcon{
+	float:left;
+	max-height:1em;
+	margin-right:5px;
+}
+.recordingTitle{
+	display:inline-block;
+	width:80%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow:ellipsis;
+}
+.recordingArrowBtn{
+	float:right;
+	max-height:1em;
+}

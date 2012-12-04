@@ -20,7 +20,6 @@ ul{
 #logo{
 	background-image:url(../imgs/logo_dark.png);
 	background-size:50px 75px;
-	background-repeat:no-repeat;
 	width:50px;
 	height:75px;
 	border:0px;
@@ -68,7 +67,43 @@ ul{
 }
 #songList .selected{
 	background-color:#A2B6BF;
-	border-top-left-radius: 5px;
+	border-top-left-radius:15px;
+}
+div.song-view{
+	position:relative;
+	padding:10px;
+	height:50px;
+}
+.arrowDownBlue{
+	position: absolute;
+	right: 20px;
+	top: 50%;
+	margin-top: -15px;
+	background:url(../imgs/button_arrow_down_blue.png) no-repeat;
+	background-size:contain;
+	width:30px;
+	height:30px;
+}
+.song-view .songIcon{
+	position: absolute;
+	left: 15px;
+	top: 50%;
+	margin-top: -15px;
+	background:url(../imgs/notes.PNG) no-repeat;
+	background-size:contain;
+	width:20px;
+	height:30px;
+	border:0px;
+}
+.song-view span{
+	font-size: 	20px;
+	position: absolute;
+	left: 50px;
+	top: 50%;
+	margin-top: -10px;
+	white-space: nowrap;
+	width: 165px;
+	overflow-x: hidden;
 }
 #songDetails{
 	width:75%;
@@ -104,10 +139,7 @@ ul{
     cursor:pointer;
 }
 #recordingList h1, #compositionList h1{
-	color: white;
-}
-div.song-view{
-	padding: 5px;
+	color:white;
 }
 #newSong{
 	position:absolute;
@@ -128,16 +160,16 @@ div.song-view{
 	background:#a2b6bf;
 }
 #songNameInput{
-	width: 100%;
-	height: 45px;
-	font-size: 20px;
-	text-align: center;
+	width:100%;
+	height:45px;
+	font-size:20px;
+	text-align:center;
 }
 img.largeButton{
-	max-height: 48px;
-	cursor: pointer;
+	max-height:48px;
+	cursor:pointer;
 }
 input.default{
-	color: gray;
-	font-style: italic;
+	color:gray;
+	font-style:italic;
 }

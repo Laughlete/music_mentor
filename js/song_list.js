@@ -114,7 +114,7 @@ $(function(){
 		initialize: function(){
 
 			this.input = this.$("#newSong");
-
+		
 			Songs.bind('add', this.addOne, this);
 			Songs.bind('reset', this.addAll, this);
 			Songs.bind('all', this.render, this);
@@ -136,8 +136,45 @@ $(function(){
 		},
 
 		createNewSong: function(){
-			var songName = prompt("Enter Song Name", "New Song")
-			Songs.create({title:songName});
+			function checkInput(){
+				$("#songAddSave").unbind("click");
+				if($("#songNameInput").val() != $("#songNameInput").defaultValue){
+					$("#songAddSave").click(function(){
+						var songName = $("#songNameInput").val();
+						Songs.create({title:songName});
+						$.colorbox.close();
+					});
+				}
+			}
+			$.colorbox({
+				inline: true, 
+				href: "#songAddPopup",
+				/* onComplete fires when the box finishes loading */
+				onComplete: function(){
+					var defaultVal = $("#songNameInput")[0].defaultValue;
+					$("#songNameInput").removeClass("default").addClass("default");
+					$("#songNameInput").focus(function(){
+						if($("#songNameInput").val() != $("#songNameInput").defaultValue){
+							$("#songNameInput").val("");
+							$("#songNameInput").removeClass("default");
+						}
+					});
+					/* clear the box, disable button */
+					$("#songNameInput").val(defaultVal);
+					$("#songAddSave").unbind("click");
+					
+					$("#songAddCancel").click(function(){
+						$.colorbox.close();
+					});
+					$("#songNameInput").change(function(){
+						checkInput();
+					});
+					$("#songNameInput").keypress(function(){
+						checkInput();
+					});
+					
+				}
+			});
 		}
 	})
 

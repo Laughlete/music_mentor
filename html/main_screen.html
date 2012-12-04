@@ -2,11 +2,12 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="../css/main_screen.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/colorbox.css"/>
         <script src="../lib/jquery-min-1-8-3.js"></script>
         <script src="../lib/jquery.colorbox-min.js"></script>
-        <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.2/underscore-min.js"></script>
-        <script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/0.9.2/backbone-min.js"></script>
-        <script src="http://cdnjs.cloudflare.com/ajax/libs/backbone-localstorage.js/1.0/backbone.localStorage-min.js"></script>
+        <script src="../lib/underscore-min.js"></script>
+        <script src="../lib/backbone-min.js"></script>
+        <script src="../lib/backbone.localStorage-min.js"></script>
         <script src="../js/main_screen.js"></script>
         <script src="../js/recording_list.js"></script>
         <script src="../js/song_list.js"></script>
@@ -16,7 +17,20 @@
             <div id="logo"></div>
         	<ul >
         	</ul>
+<<<<<<< HEAD
             <input id="newSong" type="image" src="../imgs/button_new_song.png" alt="New Song Button"/>
+=======
+            <img id="newSong" class="largeButton" src="../imgs/button_new_song.png" />
+			<!-- This contains the hidden content for the colorbox -->
+			<div style='display:none'>
+				<div id='songAddPopup'>
+					<input class="default" type="text" id="songNameInput" value="New Song Name" />
+					<br><br>
+					<img id="songAddSave" src="../imgs/button_save.png" class="largeButton" />
+					<img id="songAddCancel" src="../imgs/button_cancel.png" class="largeButton" />
+				</div>
+			</div>
+>>>>>>> ec0ebc86b1f4e9f3e42b0f676994950fc71fde7a
         </div>
         <div id="songDetails">
         	<div id="recordingList">
@@ -37,7 +51,7 @@
         <!--Underscore templates used by backbone-->
         <!--http://underscorejs.org/#template-->
         <script type="text/template" id="song-template">
-            <div class="song-view <%if(selected)print(' selected')%>">
+            <div class="song-view <%if(selected)print("selected")%>">
         	   <div class="songIcon"></div><%- title %>
                 <div <%if(!selected)print("class='hide'")%>>test stuff</div>
             <div>

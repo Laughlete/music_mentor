@@ -79,7 +79,26 @@ div{
 #newSong{
 	position:absolute;
 	bottom: 20px;
-        left: 5px;
         width:50%;
         height:5%;
+	left: 50%;
+	margin-left: -80px;
+}
+#songAddPopup{
+	padding:10px;
+	background:#a2b6bf;
+}
+#songNameInput{
+	width: 100%;
+	height: 45px;
+	font-size: 20px;
+	text-align: center;
+}
+img.largeButton{
+	max-height: 40px;
+	cursor: pointer;
+}
+input.default{
+	color: gray;
+	font-style: italic;
 }

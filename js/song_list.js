@@ -164,7 +164,7 @@ $(function(){
 				}
 			}
 			$.colorbox({
-				inline: true, 
+				inline: true,
 				href: "#songAddPopup",
 				/* onComplete fires when the box finishes loading */
 				onComplete: function(){
@@ -186,8 +186,13 @@ $(function(){
 					$("#songNameInput").change(function(){
 						checkInput();
 					});
-					$("#songNameInput").keypress(function(){
-						checkInput();
+					$("#songNameInput").keydown(function(event){
+						if(event.which == 13){
+							/* enter pressed */
+							$("#songAddSave").click();
+						} else{
+							checkInput();
+						}
 					});
 					
 				}

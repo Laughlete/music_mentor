@@ -60,6 +60,7 @@ ul{
 }
 #songList .selected{
 	background-color:#A2B6BF;
+	border-top-left-radius: 5px;
 }
 #songDetails{
 	width:75%;
@@ -93,6 +94,9 @@ ul{
 #songList ul, #recordingList ul, #compositionList ul{
 	list-style:none;
     cursor:pointer;
+}
+div.song-view{
+	padding: 5px;
 }
 #newSong{
 	position:absolute;

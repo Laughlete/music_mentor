@@ -103,6 +103,9 @@ ul{
 	list-style:none;
     cursor:pointer;
 }
+#recordingList h1, #compositionList h1{
+	color: white;
+}
 div.song-view{
 	padding: 5px;
 }
@@ -131,7 +134,7 @@ div.song-view{
 	text-align: center;
 }
 img.largeButton{
-	max-height: 40px;
+	max-height: 48px;
 	cursor: pointer;
 }
 input.default{

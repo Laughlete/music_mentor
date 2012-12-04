@@ -29,7 +29,7 @@ $(function(){
 
 		model: Recording,
 
-		localStorage: new Store("songs-backbone"),
+		localStorage: new Store("recordings-backbone"),
 
 		nextOrder: function(){
 			if(!this.length) return 1;
@@ -40,6 +40,8 @@ $(function(){
 			return recording.get('order');
 		}
 	})
+
+	Recordings = new RecordingList;
 
 	RecordingView = Backbone.View.extend({
 
@@ -61,8 +63,6 @@ $(function(){
 			return this;
 		}
 	})
-
-	Recordings = new RecordingList;
 
 	RecordingListView = Backbone.View.extend({
 

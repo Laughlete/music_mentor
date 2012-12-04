@@ -10,6 +10,10 @@ div{
 	padding:0px;
 	margin:0px;
 }
+ul{
+	margin:0px;
+	padding: 0px;
+}
 .hide{
 	display:none;
 }
@@ -21,22 +25,25 @@ div{
 	height:75px;
 	border:0px;
 	margin:5px;
+	margin-bottom:20px;
 }
-/*.songIcon{
-	display:inline-block;
-	background-image:url(../imgs/image_musical_notes.png);
-	background-size:12px 15px;
-	background-repeat:no-repeat;
-	width:12px;
-	height:15px;
-	border:0px;
-	margin:3px;
-	margin-bottom:0px;
-}*/
 .songIcon{
     width:14px;
     height:auto;
     margin-right:3px;
+}
+.song-view{
+	margin-left:10px;
+	margin-bottom:20px;
+	padding-left:10px;
+}
+.song-view.selected{
+	margin-bottom:15px;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+.song-controls{
+	padding-top:15px;
 }
 #songList{
 	width:25%;
@@ -49,14 +56,13 @@ div{
 	background-color:#A2B6BF;
 }
 #songDetails{
-	padding:2%;
-	width:71%;
+	width:75%;
 	height:100%;
 	background-color:#A2B6BF;
 	float:right;
 }
 #preSongDetails{
-	width:71%;
+	width:75%;
 	height:100%;
 	background-color:#A2B6BF;
 	float:right;
@@ -85,8 +91,9 @@ div{
 #newSong{
 	position:absolute;
 	bottom: 20px;
-        width:50%;
-        height:auto;
+	min-width:100px;
+    width:50%;
+    height:auto;
 	left: 10%;
 	/*margin-left: -80px;*/
 }

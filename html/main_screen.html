@@ -51,11 +51,10 @@
             <div class="song-view <%if(selected)print("selected")%>">
         	   <img class="songIcon" src="../imgs/image_musical_notes.png"><%- title %>
                     <img id="songArrowBtn" src="../imgs/button_arrow_down_brown.png" align="right"/>
-                    <br><br><br>
-                <div <%if(!selected)print("class='hide'")%>>
+                <div class="song-controls <%if(!selected)print('hide')%>">
                     <img src="../imgs/button_rename.png" width="85" height="30"/>
                     <img src="../imgs/button_.png" width="30" height="30"/>
-                    <img src="../imgs/button_X_brown.png" widht="30" height="30"/>
+                    <img src="../imgs/button_X_brown.png" width="30" height="30"/>
                 </div>
             <div>
         </script>

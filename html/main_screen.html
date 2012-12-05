@@ -69,7 +69,7 @@
         <script type="text/template" id="composition-template">
             <div class="composition1stLine">
                 <img class="icon" src="../imgs/image_cleff.png">
-                <a class="title" href="CompositionScreen.html?songName=<%-musicMentor.selectedSong.get('title')%>&compositionName=<%-title%>"><%- title %></a>
+                <a class="title" href="CompositionScreen.html?songName=<%-musicMentor.selectedSong === undefined? '' : musicMentor.selectedSong.get('title')%>&compositionName=<%-title%>"><%- title %></a>
                 <img class="arrowBtn brownButton" src="../imgs/button_arrow_down_brown.png">
             </div>
             <div class="options <%if(!selected || playing)print('hide')%>">

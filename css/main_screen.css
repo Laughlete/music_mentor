@@ -50,7 +50,7 @@ ul{
 .song-controls{
 	padding-top:15px;
 	display:inline-block;
-	background-image:url(../imgs/notes.PNG);
+	background-image:url(../imgs/image_musical_notes.png);
 	background-size:10px 15px;
 	background-repeat:no-repeat;
 	width:10px;
@@ -89,7 +89,7 @@ div.song-view{
 	left: 15px;
 	top: 50%;
 	margin-top: -15px;
-	background:url(../imgs/notes.PNG) no-repeat;
+	background:url(../imgs/image_musical_notes.png) no-repeat;
 	background-size:contain;
 	width:20px;
 	height:30px;
@@ -190,23 +190,25 @@ input.default{
 }
 
 /*recording template styling*/
-.recording-template{
-	margin-top:10px;
-	margin-bottom:10px;
+#recordingList ul li{
+	margin-top:5%;
+	margin-bottom:5%;
+	margin-left:2%;
+	margin-right:2%;
 }
 .recordingIcon{
 	float:left;
-	max-height:1em;
+	max-height:1.2em;
 	margin-right:5px;
 }
 .recordingTitle{
 	display:inline-block;
-	width:82%;
+	width:80%;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow:ellipsis;
 }
 .recordingArrowBtn{
 	float:right;
-	max-height:1em;
+	max-height:1.2em;
 }

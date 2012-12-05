@@ -22,6 +22,16 @@ $(function(){
 
 		clear:function(){
 			this.destroy();
+		},
+
+		select: function(){
+			musicMentor.selectedRecording = this
+			this.set({"selected":true})
+		},
+
+		unSelect: function(){
+			musicMentor.selectedRecording = undefined
+			this.set({"selected":false})
 		}
 	})
 
@@ -50,7 +60,7 @@ $(function(){
 		template: _.template($('#recording-template').html()),
 
 		events: {
-			//TODO put events here
+			"click .recording1stLine": "selectRecording"
 		},
 
 		initialize: function(){
@@ -61,6 +71,15 @@ $(function(){
 		render: function(){
 			this.$el.html(this.template(this.model.toJSON()));
 			return this;
+		},
+
+		selectRecording: function(){
+			var selectedPrev = this.model.get("selected")
+			Recordings.each(function(recording){recording.set({"selected":false})})
+			if(selectedPrev)
+				this.model.unSelect()
+			else
+				this.model.select()
 		}
 	})
 

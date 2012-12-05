@@ -61,11 +61,14 @@
         </script>
 
         <script type="text/template" id="recording-template">
-            <span class="recording1stLine">
+            <div class="recording1stLine">
                 <img class="recordingIcon" src="../imgs/image_microphone.png">
                 <span class="recordingTitle"><%- title %></span>
                 <img class="recordingArrowBtn" src="../imgs/button_arrow_down_brown.png">
-            </span>
+            </div>
+            <div class="recordingOptions <%if(!selected)print('hide')%>">
+            test
+            </div>
         </script>
 
         <script type="text/template" id="composition-template">

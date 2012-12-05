@@ -82,8 +82,39 @@
 }
 
 .note{
-	height:173px;	
+	height:173px;
+	width:175px;
+	background: url("../imgs/blank-node.PNG") no-repeat;
 }
+
+.note.a{
+	background: url("../imgs/Anew.png") no-repeat;
+}
+
+.note.b{
+	background: url("../imgs/Cnew.png") no-repeat;
+}
+
+.note.c{
+	background: url("../imgs/Cnew.png") no-repeat;
+}
+
+.note.d{
+	background: url("../imgs/Cnew.png") no-repeat;
+}
+
+.note.e{
+	background: url("../imgs/Cnew.png") no-repeat;
+}
+
+.note.f{
+	background: url("../imgs/Cnew.png") no-repeat;
+}
+
+.note.g{
+	background: url("../imgs/Cnew.png") no-repeat;
+}
+
 
 select{
 	background-color: A2B6BF;

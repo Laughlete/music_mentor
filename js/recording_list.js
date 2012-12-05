@@ -62,7 +62,8 @@ $(function(){
 		events: {
 			"click .recording1stLine": "selectRecording",
 			"click .renameRecordingBtn": "renameRecording",
-			"click .duplicateRecordingBtn": "duplicateRecording"
+			"click .duplicateRecordingBtn": "duplicateRecording",
+			"click .removeRecordingBtn": "removeRecording"
 		},
 
 		initialize: function(){
@@ -108,6 +109,16 @@ $(function(){
 				if(recording == musicMentor.selectedSong.get("recordings").last())
 					recording.set({order:newOrder})
 			})
+		},
+
+		removeRecording: function(){
+			var removeOrder = this.model.get("order")
+			musicMentor.selectedSong.get("recordings").each(function(recording){
+				if(recording.get("order") > removeOrder)
+					recording.set({"order":recording.get("order") - 1})
+			})
+			this.model.clear()
+			musicMentor.selectedRecording = undefined
 		}
 	})
 

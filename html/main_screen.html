@@ -69,11 +69,16 @@
         <script type="text/template" id="composition-template">
             <div class="composition1stLine">
                 <img class="icon" src="../imgs/image_cleff.png">
-                <span class="title"><%- title %></span>
+                <a class="title" href="CompositionScreen.html?songName=<%-musicMentor.selectedSong.get('title')%>&compositionName=<%-title%>"><%- title %></a>
                 <img class="arrowBtn brownButton" src="../imgs/button_arrow_down_brown.png">
             </div>
             <div class="options <%if(!selected || playing)print('hide')%>">
                 <img class="renameBtn brownButton" src="../imgs/button_rename.png">
+                <span class="rightBtns">
+                    <img class="playBtn brownButton" src="../imgs/button_play_brown.png">
+                    <img class="duplicateBtn brownButton" src="../imgs/button_.png">
+                    <img class="removeBtn brownButton" src="../imgs/button_X_brown.png">
+                </span>
             </div>
         </script>
 

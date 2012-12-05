@@ -97,7 +97,17 @@ $(function(){
 		},
 
 		duplicateComposition: function(){
+			var newOrder = musicMentor.selectedComposition.get("order")+1;
+			var newTitle = "copy of " + musicMentor.selectedComposition.get("title")
+			var newSelected = false
+			musicMentor.selectedSong.createComposition({title:newTitle, selected:newSelected})
 
+			musicMentor.selectedSong.get("compositions").each(function(composition){
+				if(composition.get("order") >= newOrder)
+					composition.set({order: composition.get('order')+1})
+				if(composition == musicMentor.selectedSong.get("compositions").last())
+					composition.set({order:newOrder})
+			})
 		},
 
 		removeComposition: function(){

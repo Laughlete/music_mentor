@@ -8,7 +8,6 @@
         <script src="../lib/underscore-min.js"></script>
         <script src="../lib/backbone-min.js"></script>
         <script src="../lib/backbone.localStorage-min.js"></script>
-        <script src="../lib/mediaelement-and-player.min.js"></script>
         <script src="../js/main_screen.js"></script>
         <script src="../js/recording_list.js"></script>
         <script src="../js/composition_list.js"></script>
@@ -66,9 +65,12 @@
                     <img class="removeBtn brownButton" src="../imgs/button_X_brown.png">
                 </span>
             </div>
-            <div class="audio-player <%if(!selected || !playing)print('hide')%>">
-                <audio id="audio-player" src="../sounds/All.mp3" type="audio/mp3" controls="controls"></audio>
+            <div class="player <%if(!selected || !playing)print('hide')%>">
+                <audio id="audio-player" name="audio-player" src="../sounds/All.mp3"></audio>
                 <span class="rightBtns">
+                    <img class="rewBtn brownButton" src="../imgs/button_rewind.png">
+                    <img class="pauseBtn brownButton" src="../imgs/button_pause.png">
+                    <img class="fwdBtn brownButton" src="../imgs/button_forward.png">
                     <img class="stopBtn brownButton" src="../imgs/button_stop_brown.png">
                 </span>
             </div>

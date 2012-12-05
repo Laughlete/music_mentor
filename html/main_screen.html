@@ -65,7 +65,6 @@
                 </span>
             </div>
             <div class="player <%if(!selected || !playing)print("hide")%>">
-                <audio id="audio-player" name="audio-player" src="../sounds/All.mp3"></audio>
                 <span class="brownButton">
                     <%if(clip !== undefined && Math.round(clip.duration) > 0){print(Math.round(clip.currentTime)+"/"+Math.round(clip.duration))}else{print("&nbsp;")}%>
                 </span>

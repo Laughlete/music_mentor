@@ -137,11 +137,13 @@ $(function(){
 			Songs.bind('all', this.render, this);
 
 			this.ul = this.$("ul")
+			songListReference = this
 			Songs.create({title:"New Song 1"});
 		},
 
 		render: function(){
-
+			$("#songList ul > li").remove()
+			songListReference.addAll.call(songListReference)
 		},
 
 		addOne: function(song){
@@ -150,7 +152,13 @@ $(function(){
 		},
 
 		addAll: function(){
-			Songs.each(this.addOne);
+			for(var i=1; i<=Songs.models.length; i++){
+				Songs.each(function(song){
+					if(song.get("order") == i)
+						songListReference.addOne(song)
+				})
+			}
+			//Songs.each(this.addOne);
 		},
 
 		createNewSong: function(){

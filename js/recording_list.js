@@ -99,6 +99,12 @@ $(function(){
 		duplicateRecording: function(){
 			var newOrder = musicMentor.selectedRecording.get("order") + 1;
 			var newTitle = "copy of " + musicMentor.selectedRecording.get("title")
+			var newSelected = false
+			musicMentor.selectedSong.createRecording({title:newTitle, selected:newSelected})
+
+			/*musicMentor.selectedSong.get("recordings").each({
+				alert("test")
+			})*/
 		}
 	})
 

@@ -8,7 +8,10 @@ $(function(){
 				title: "New Recording",
 				order: Recordings.nextOrder(),
 				selected: false,
-				playing: false
+				playing: false,
+				paused: false,
+				clip: undefined,
+				constantlyRefreshing: false
 			}
 		},
 
@@ -32,7 +35,7 @@ $(function(){
 
 		unSelect: function(){
 			musicMentor.selectedRecording = undefined
-			this.set({"selected":false})
+			this.set({"selected":false,"playing":false,"paused":false,"constantlyRefreshing":false})
 		}
 	})
 
@@ -86,48 +89,60 @@ $(function(){
 			return this;
 		},
 
-		selectRecording: function(){
-			var selectedPrev = this.model.get("selected")
-			Recordings.each(function(recording){recording.set({"selected":false})})
-			if(selectedPrev){
-				this.model.unSelect()
-			}
-			else{
-				this.model.select()
-			}
-		},
-
 		renameRecording: function(){
 			musicMentor.popupDialog(function(recordingName){
 				musicMentor.selectedRecording.rename(recordingName)
 			}, musicMentor.selectedRecording.get("title"))
 		},
 
+		constantRefresh: function(){
+			var timeout = 1000
+			var that=this;
+			var toDo = function(){
+				if(musicMentor.recordingsView !== undefined)
+					musicMentor.recordingsView.render()
+				if(that.model.get("constantlyRefreshing")){
+					setTimeout(toDo, timeout)
+				}
+			}
+			setTimeout(toDo, timeout)
+		},
+
 		startPlayback: function(){
+			if(this.model.get("clip") === undefined)
+				this.model.set({"clip": new Audio("../sounds/All.mp3")})
+			this.model.get("clip").play()
 			this.model.set({"playing":true})
-			$("#audio-player")[0].play()
+			this.model.set({"paused":false})
+			this.model.set({"constantlyRefreshing":true})
+			this.constantRefresh()
 		},
 
 		rewindPlayback: function(){
-			if($("#audio-player")[0].currentTime < 10)
-				$("#audio-player")[0].currentTime = 0
+			if(this.model.get("clip").currentTime < 10)
+				this.model.get("clip").currentTime = 0
 			else
-				$("#audio-player")[0].currentTime -= 10
+				this.model.get("clip").currentTime -= 10
 		},
 
 		pausePlayback: function(){
-			$("#audio-player")[0].pause()
-		},
-
-		fastForwardPlayback: function(){
-			if($("#audio-player")[0].currentTime + 30 > $("#audio-player")[0].duration)
-				stopPlayback()
-			else
-				$("#audio-player")[0].currentTime += 30
+			this.model.get("clip").pause()
+			this.model.set({"paused":true})
 		},
 
 		stopPlayback: function(){
 			this.model.set({"playing":false})
+			this.model.set({"paused":false})
+			this.model.set({"constantlyRefreshing":false})
+			this.model.get("clip").pause()
+			this.model.get("clip").currentTime = 0
+		},
+
+		fastForwardPlayback: function(){
+			if(this.model.get("clip").currentTime + 30 > this.model.get("clip").duration)
+				stopPlayback()
+			else
+				this.model.get("clip").currentTime += 30
 		},
 
 		duplicateRecording: function(){
@@ -142,6 +157,18 @@ $(function(){
 				if(recording == musicMentor.selectedSong.get("recordings").last())
 					recording.set({order:newOrder})
 			})
+		},
+
+		selectRecording: function(){
+			var selectedPrev = this.model.get("selected")
+			Recordings.each(function(recording){recording.set({"selected":false})})
+			if(selectedPrev){
+				this.model.unSelect()
+				this.stopPlayback()
+			}
+			else{
+				this.model.select()
+			}
 		},
 
 		removeRecording: function(){
@@ -202,4 +229,5 @@ $(function(){
 	})
 
 	RecordingsView = new RecordingListView;
+	musicMentor.recordingsView = RecordingsView;
 })

@@ -61,7 +61,8 @@ $(function(){
 
 		events: {
 			"click .recording1stLine": "selectRecording",
-			"click .renameRecordingBtn": "renameRecording"
+			"click .renameRecordingBtn": "renameRecording",
+			"click .duplicateRecordingBtn": "duplicateRecording"
 		},
 
 		initialize: function(){
@@ -92,7 +93,12 @@ $(function(){
 		renameRecording: function(){
 			musicMentor.popupDialog(function(recordingName){
 				musicMentor.selectedRecording.rename(recordingName)
-			}, "New Recording Name")
+			}, musicMentor.selectedRecording.get("title"))
+		},
+
+		duplicateRecording: function(){
+			var newOrder = musicMentor.selectedRecording.get("order") + 1;
+			var newTitle = "copy of " + musicMentor.selectedRecording.get("title")
 		}
 	})
 

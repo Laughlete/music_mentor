@@ -162,7 +162,7 @@ $(function(){
 		renameSong: function(){
 			musicMentor.popupDialog(function(songName){
 				musicMentor.selectedSong.rename(songName)
-			}, "New Song Name")
+			}, musicMentor.selectedSong.get("title"))
 		},
 
 		duplicateSong: function(){

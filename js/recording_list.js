@@ -64,6 +64,9 @@ $(function(){
 			"click .firstLine": "selectRecording",
 			"click .renameBtn": "renameRecording",
 			"click .playBtn": "startPlayback",
+			"click .rewBtn": "rewindPlayback",
+			"click .pauseBtn": "pausePlayback",
+			"click .fwdBtn": "fastForwardPlayback",
 			"click .stopBtn": "stopPlayback",
 			"click .duplicateBtn": "duplicateRecording",
 			"click .removeBtn": "removeRecording"
@@ -103,6 +106,24 @@ $(function(){
 		startPlayback: function(){
 			this.model.set({"playing":true})
 			$("#audio-player")[0].play()
+		},
+
+		rewindPlayback: function(){
+			if($("#audio-player")[0].currentTime < 10)
+				$("#audio-player")[0].currentTime = 0
+			else
+				$("#audio-player")[0].currentTime -= 10
+		},
+
+		pausePlayback: function(){
+			$("#audio-player")[0].pause()
+		},
+
+		fastForwardPlayback: function(){
+			if($("#audio-player")[0].currentTime + 30 > $("#audio-player")[0].duration)
+				stopPlayback()
+			else
+				$("#audio-player")[0].currentTime += 30
 		},
 
 		stopPlayback: function(){

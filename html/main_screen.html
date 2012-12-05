@@ -39,14 +39,16 @@
         <!--http://underscorejs.org/#template-->
         <script type="text/template" id="song-template">
             <div class="song-view <%if(selected)print("selected")%>">
-        	   <div class='song-title'><img class="songIcon" src="../imgs/image_musical_notes.png"><%- title %>
-                    <img id="songArrowBtn" src="../imgs/button_arrow_down_brown.png" align="right"/></div>
-                <div class="song-controls <%if(!selected)print('hide')%>">
-                    <img id="renameSong" src="../imgs/button_rename.png" width="85" height="30"/>
-                    <img id="duplicateSong" src="../imgs/button_.png" width="30" height="30"/>
-                    <img id="removeSong" src="../imgs/button_X_brown.png" width="30" height="30"/>
-                </div>
-            <div>
+			<div class='song-title'>
+				<img class="songIcon" src="../imgs/image_musical_notes.png">
+				<span><%- title %></span>
+				<img id="songArrowBtn" src="../imgs/button_arrow_down_brown.png" align="right"/>
+			</div>
+			<div class="song-controls <%if(!selected)print("hide")%>">
+				<img id="renameSong" src="../imgs/button_rename.png" />
+				<img id="removeSong" src="../imgs/button_X_brown.png" />
+				<img id="duplicateSong" src="../imgs/button_.png" />
+			</div>
         </script>
 
         <script type="text/template" id="recording-template">
@@ -55,7 +57,7 @@
                 <span class="recordingTitle"><%- title %></span>
                 <img class="recordingArrowBtn" src="../imgs/button_arrow_down_brown.png">
             </div>
-            <div class="recordingOptions <%if(!selected)print('hide')%>">
+            <div class="recordingOptions <%if(!selected)print("hide")%>">
                 <img class="renameRecordingBtn" src="../imgs/button_rename.png">
                 <span class="recordingRightBtns">
                     <img class="playRecordingBtn" src="../imgs/button_play_brown.png">

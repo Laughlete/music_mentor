@@ -30,13 +30,15 @@ ul{
 	margin-bottom:20px;
 }
 .songIcon{
-    width:14px;
-    height:auto;
-    margin-right:3px;
+	position: absolute;
+	top: 10px;
+	width:20px;
+	height:30px;
 }
 .song-title{
 	position:relative;
-	float:left;
+	width: 100%;
+	height: 50px;
 }
 .song-view{
 	display:block;
@@ -53,11 +55,7 @@ ul{
 .song-controls{
 	padding-top:15px;
 	display:inline-block;
-	background-image:url(../imgs/image_musical_notes.png);
-	background-size:10px 15px;
-	background-repeat:no-repeat;
-	width:10px;
-	height:15px;
+	width:100%;
 	border:0px;
 	margin:3px 8px 0 3px;
 }
@@ -71,41 +69,20 @@ ul{
 #songList .selected{
 	background-color:#A2B6BF;
 	border-top-left-radius:15px;
+	height:100px;
 }
 div.song-view{
 	position:relative;
 	padding:10px;
 	height:50px;
 }
-.arrowDownBlue{
-	position: absolute;
-	right: 20px;
-	top: 50%;
-	margin-top: -15px;
-	background:url(../imgs/button_arrow_down_blue.png) no-repeat;
-	background-size:contain;
-	width:30px;
-	height:30px;
-}
-.song-view .songIcon{
-	position: absolute;
-	left: 15px;
-	top: 50%;
-	margin-top: -15px;
-	background:url(../imgs/image_musical_notes.png) no-repeat;
-	background-size:contain;
-	width:20px;
-	height:30px;
-	border:0px;
-}
 .song-view span{
 	font-size: 	20px;
 	position: absolute;
-	left: 50px;
-	top: 50%;
-	margin-top: -10px;
+	left: 35px;
+	top: 10px;
 	white-space: nowrap;
-	width: 165px;
+	width: 200px;
 	overflow-x: hidden;
 }
 #songDetails{
@@ -158,9 +135,21 @@ div.song-view{
 	/*margin-left: -80px;*/
 }
 #songArrowBtn{
-    width:15%;
-    padding-right: 20px;
-    max-height:1em;
+	position: absolute;
+	right: 0px;
+	top: 10px;
+	width:30px;
+	height:30px;
+}
+#renameSong{
+	width: 85px;
+	height: 30px;
+}
+#duplicateSong, #removeSong{
+	width: 30px;
+	height: 30px;
+	float: right;
+	margin-left: 5px;
 }
 #popup{
 	padding:10px;

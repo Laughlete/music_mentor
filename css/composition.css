@@ -1,17 +1,24 @@
-﻿body{
+﻿html,body{
+	width:100%;
+	height:100%;
+	padding:0px;
+	margin:0px;
+	background-color:#FFFFFF;
 	font-family:"Google PT Sans",Verdana,sans-serif;
 }
-
+div{
+	padding:0px;
+	margin:0px;
+}
 #topBar{
-	width: 95%;
-	height: 20%;
+	width: 100%;
+	height: 15%;
 	background-color:A2B6BF;
-	padding: 2%;
 }
 
 #compositionArea{
-	width:95%;
-	height:75%;
+	width:96%;
+	height:78%;
 	background-color:404A4E;
 	padding: 2%;
 }

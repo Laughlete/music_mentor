@@ -35,7 +35,7 @@
         #cboxLoadedContent{}
         #cboxTitle{position:absolute; bottom:0px; left:0; text-align:center; width:100%; color:#999;}
         #cboxCurrent{position:absolute; bottom:0px; left:100px; color:#999;}
-        #cboxLoadingOverlay{background:#a2b6bf url("../imgs/loading.gif") no-repeat 5px 5px;}
+        /*#cboxLoadingOverlay{background:#a2b6bf url("../imgs/loading.gif") no-repeat 5px 5px;}*/
         
 		#cboxPrevious, #cboxNext, #cboxClose, #cboxSlideshow{display: none !important;}
         #cboxPrevious{left:0px; background-position: -51px -25px;}

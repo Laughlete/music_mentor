@@ -82,37 +82,39 @@
 }
 
 .note{
+	display:inline-block;
 	height:173px;
 	width:175px;
 	background: url("../imgs/blank-node.PNG") no-repeat;
+	background-size: contain;
 }
 
 .note.a{
-	background: url("../imgs/Anew.png") no-repeat;
+	background-image: url("../imgs/Anew.png");
 }
 
 .note.b{
-	background: url("../imgs/Cnew.png") no-repeat;
+	background-image: url("../imgs/Bnew.png");
 }
 
 .note.c{
-	background: url("../imgs/Cnew.png") no-repeat;
+	background-image: url("../imgs/Cnew.png");
 }
 
 .note.d{
-	background: url("../imgs/Cnew.png") no-repeat;
+	background-image: url("../imgs/Dnew.png");
 }
 
 .note.e{
-	background: url("../imgs/Cnew.png") no-repeat;
+	background-image: url("../imgs/Enew.png");
 }
 
 .note.f{
-	background: url("../imgs/Cnew.png") no-repeat;
+	background-image: url("../imgs/Fnew.png");
 }
 
 .note.g{
-	background: url("../imgs/Cnew.png") no-repeat;
+	background-image: url("../imgs/Gnew.png");
 }
 
 

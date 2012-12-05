@@ -205,17 +205,24 @@ input.default{
 }
 .recordingIcon{
 	float:left;
-	max-height:1.2em;
 	margin-right:5px;
 }
 .recordingTitle{
 	display:inline-block;
-	width:80%;
+	width:75%;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow:ellipsis;
 }
 .recordingArrowBtn{
 	float:right;
-	max-height:1.2em;
+}
+.recordingIcon,.recordingArrowBtn,.renameRecordingBtn,.playRecordingBtn,.duplicateRecordingBtn,.removeRecordingBtn{
+	max-height:1.4em;
+}
+.recordingOptions{
+	margin-top:3%;
+}
+.recordingRightBtns{
+	float:right;
 }

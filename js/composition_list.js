@@ -22,7 +22,7 @@ $(function(){
 		},
 
 		clear:function(){
-			this.destoy();
+			this.destroy();
 		},
 
 		select: function(){
@@ -62,8 +62,9 @@ $(function(){
 
 		events:{
 			"click .composition1stLine": "selectComposition",
-			"click .renameBtn": "renameComposition"
-			//TODO put events here
+			"click .renameBtn": "renameComposition",
+			"click .duplicateBtn": "duplicateComposition",
+			"click .removeBtn": "removeComposition"
 		},
 
 		initialize: function(){
@@ -93,6 +94,20 @@ $(function(){
 			musicMentor.popupDialog(function(compositionName){
 				musicMentor.selectedComposition.rename(compositionName)
 			}, musicMentor.selectedComposition.get("title"))
+		},
+
+		duplicateComposition: function(){
+
+		},
+
+		removeComposition: function(){
+			var removeOrder = this.model.get("order")
+			musicMentor.selectedSong.get("compositions").each(function(composition){
+				if(composition.get("order") > removeOrder)
+					composition.set({"order": composition.get("order") - 1 })
+			})
+			this.model.clear()
+			musicMentor.selectedComposition = undefined
 		}
 	})
 
@@ -112,16 +127,22 @@ $(function(){
 			Compositions.bind('all', this.render, this);
 
 			this.ul = this.$("ul")
-			that1 = this
+			compositionListViewReference = this
 		},
 
 		addOne: function(composition){
 			var view = new CompositionView({model:composition});
-			that1.ul.append(view.render().el);
+			compositionListViewReference.ul.append(view.render().el);
 		},
 
 		addAll: function(){
-			Compositions.each(this.addOne)
+			for(var i=1; i<=Compositions.models.length; i++)
+			{
+				Compositions.each(function(composition){
+					if(composition.get("order") == i)
+						compositionListViewReference.addOne(composition)
+				})
+			}
 		},
 		createNewComposition: function(){
 			var compositionName = new Date();
@@ -130,7 +151,7 @@ $(function(){
 
 		render: function(){
 			$("#compositionList ul > li").remove()
-			that1.addAll()
+			compositionListViewReference.addAll()
 		}
 
 	})

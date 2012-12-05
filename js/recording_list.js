@@ -25,7 +25,16 @@ $(function(){
 		},
 
 		clear:function(){
+			this.stopPlayback()
 			this.destroy();
+		},
+
+		stopPlayback: function(){
+			if(this.get('clip') !== undefined){
+				this.get("clip").pause()
+				this.get("clip").currentTime = 0
+			}
+			this.set({"selected":false,"playing":false,"paused":false,"constantlyRefreshing":false})			
 		},
 
 		select: function(){
@@ -35,7 +44,7 @@ $(function(){
 
 		unSelect: function(){
 			musicMentor.selectedRecording = undefined
-			this.set({"selected":false,"playing":false,"paused":false,"constantlyRefreshing":false})
+			this.stopPlayback()			
 		}
 	})
 
@@ -161,7 +170,9 @@ $(function(){
 
 		selectRecording: function(){
 			var selectedPrev = this.model.get("selected")
-			Recordings.each(function(recording){recording.set({"selected":false})})
+			Recordings.each(function(recording){
+				recording.unSelect()
+			})
 			if(selectedPrev){
 				this.model.unSelect()
 				this.stopPlayback()

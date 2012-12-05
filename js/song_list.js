@@ -27,6 +27,8 @@ $(function(){
 		},
 
 		clear: function(){
+			this.get("recordings").each(function(recording){recording.clear()})
+			this.get("compositions").each(function(composition){composition.clear()})
 			this.destroy();
 		},
 
@@ -39,6 +41,8 @@ $(function(){
 		},
 
 		unSelect: function(){
+			if(musicMentor.selectedSong !== undefined && musicMentor.selectedSong.get("recordings") !== undefined)
+				musicMentor.selectedSong.get("recordings").each(function(recording){recording.stopPlayback()})
 			musicMentor.selectedSong = undefined
 			this.set({"selected": false})
 			Recordings.reset({});
@@ -105,7 +109,7 @@ $(function(){
 
 		selectSong: function(){
 			var selectedPrev = this.model.get("selected");
-			Songs.each(function(song){song.set({"selected":false})})
+			Songs.each(function(song){song.unSelect()})
 			if(selectedPrev)
 				this.model.unSelect()
 			else

@@ -1,6 +1,11 @@
 function insertElements(){
-	alert("Insert Colorbox popup here");
-	
+	$.colorbox({
+		inline: true,
+		href: "#popup",
+		onComplete: function(){
+			
+		}
+	});
 }
 
 function appendElements(){	

@@ -64,7 +64,7 @@
                     <img class="removeBtn brownButton" src="../imgs/button_X_brown.png">
                 </span>
             </div>
-            <div class="player <%if(!selected || !playing)print('hide')%>">
+            <div class="player <%if(!selected || !playing)print("hide")%>">
                 <audio id="audio-player" name="audio-player" src="../sounds/All.mp3"></audio>
                 <span class="brownButton">
                     <%if(clip !== undefined && Math.round(clip.duration) > 0){print(Math.round(clip.currentTime)+"/"+Math.round(clip.duration))}else{print("&nbsp;")}%>
@@ -85,10 +85,10 @@
         <script type="text/template" id="composition-template">
             <div class="composition1stLine">
                 <img class="icon" src="../imgs/image_cleff.png">
-                <a class="title" href="CompositionScreen.html?songName=<%-musicMentor.selectedSong === undefined? '' : musicMentor.selectedSong.get('title')%>&compositionName=<%-title%>"><%- title %></a>
+                <a class="title" href="CompositionScreen.html?songName=<%-musicMentor.selectedSong === undefined? "" : musicMentor.selectedSong.get("title")%>&compositionName=<%-title%>"><%- title %></a>
                 <img class="arrowBtn brownButton" src="../imgs/button_arrow_down_brown.png">
             </div>
-            <div class="options <%if(!selected || playing)print('hide')%>">
+            <div class="options <%if(!selected || playing)print("hide")%>">
                 <img class="renameBtn brownButton" src="../imgs/button_rename.png">
                 <span class="rightBtns">
                     <img class="playBtn brownButton" src="../imgs/button_play_brown.png">

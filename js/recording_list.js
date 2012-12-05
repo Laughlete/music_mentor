@@ -69,6 +69,10 @@ $(function(){
 		},
 
 		render: function(){
+			if(this.model.get("selected"))
+				this.$el.attr("class", "selected")
+			else
+				this.$el.attr("class", "unselected")
 			this.$el.html(this.template(this.model.toJSON()));
 			return this;
 		},
@@ -76,10 +80,12 @@ $(function(){
 		selectRecording: function(){
 			var selectedPrev = this.model.get("selected")
 			Recordings.each(function(recording){recording.set({"selected":false})})
-			if(selectedPrev)
+			if(selectedPrev){
 				this.model.unSelect()
-			else
+			}
+			else{
 				this.model.select()
+			}
 		}
 	})
 

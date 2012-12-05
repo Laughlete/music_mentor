@@ -17,6 +17,9 @@ ul{
 .hide{
 	display:none;
 }
+.hide img{
+	display:none;
+}
 #logo{
 	background-image:url(../imgs/logo_dark.png);
 	background-size:50px 75px;
@@ -191,10 +194,14 @@ input.default{
 
 /*recording template styling*/
 #recordingList ul li{
-	margin-top:5%;
-	margin-bottom:5%;
-	margin-left:2%;
-	margin-right:2%;
+	margin-top:2%;
+	margin-bottom:2%;
+
+	padding:2%;
+}
+#recordingList ul li.selected{
+	background-color:#829299;
+	border-radius:7px;
 }
 .recordingIcon{
 	float:left;

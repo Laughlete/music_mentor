@@ -42,7 +42,6 @@
 			<div class='song-title'>
 				<img class="songIcon" src="../imgs/image_musical_notes.png">
 				<span><%- title %></span>
-				<img id="songArrowBtn" src="../imgs/button_arrow_down_brown.png" align="right"/>
 			</div>
 			<div class="song-controls <%if(!selected)print("hide")%>">
 				<img id="renameSong" src="../imgs/button_rename.png" />
@@ -53,22 +52,26 @@
 
         <script type="text/template" id="recording-template">
             <div class="recording1stLine">
-                <img class="recordingIcon" src="../imgs/image_microphone.png">
-                <span class="recordingTitle"><%- title %></span>
-                <img class="recordingArrowBtn" src="../imgs/button_arrow_down_brown.png">
+                <img class="icon" src="../imgs/image_microphone.png">
+                <span class="title"><%- title %></span>
+                <img class="arrowBtn brownButton" src="../imgs/button_arrow_down_brown.png">
             </div>
-            <div class="recordingOptions <%if(!selected)print("hide")%>">
-                <img class="renameRecordingBtn" src="../imgs/button_rename.png">
-                <span class="recordingRightBtns">
-                    <img class="playRecordingBtn" src="../imgs/button_play_brown.png">
-                    <img class="duplicateRecordingBtn" src="../imgs/button_.png">
-                    <img class="removeRecordingBtn" src="../imgs/button_X_brown.png">
+            <div class="options <%if(!selected || playing)print("hide")%>">
+                <img class="renameRecordingBtn brownButton" src="../imgs/button_rename.png">
+                <span class="rightBtns">
+                    <img class="playRecordingBtn brownButton" src="../imgs/button_play_brown.png">
+                    <img class="duplicateRecordingBtn brownButton" src="../imgs/button_.png">
+                    <img class="removeRecordingBtn brownButton" src="../imgs/button_X_brown.png">
                 </span>
             </div>
         </script>
 
         <script type="text/template" id="composition-template">
-            <%- title %>
+            <div class="compostion1stLine">
+                <img class="icon" src="../imgs/image_cleff.png">
+                <span class="title"><%- title %></span>
+                <img class="arrowBtn brownButton" src="../imgs/button_arrow_down_brown.png">
+            </div>
         </script>
 
         <!-- This contains the hidden content for the colorbox -->

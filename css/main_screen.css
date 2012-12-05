@@ -180,35 +180,35 @@ input.default{
 	font-style:italic;
 }
 
-/*recording template styling*/
-#recordingList ul li{
+/*recording & composition template styling*/
+#recordingList ul li,#compositionList ul li{
 	margin:2%;
 	padding:3%;
 }
-#recordingList ul li.selected{
+#recordingList ul li.selected, #compositionList ul li.selected{
 	background-color:#829299;
 	border-radius:7px;
 }
-.recordingIcon{
+#recordingList .icon, #compositionList .icon{
 	float:left;
 	margin-right:5px;
 }
-.recordingTitle{
+#recordingList .title, #compositionList .title{
 	display:inline-block;
 	width:75%;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow:ellipsis;
 }
-.recordingArrowBtn{
+#recordingList .arrowBtn, #compositionList .arrowBtn{
 	float:right;
 }
-.recordingIcon,.recordingArrowBtn,.renameRecordingBtn,.playRecordingBtn,.duplicateRecordingBtn,.removeRecordingBtn{
+#recordingList .brownButton, #recordingList .icon, #compositionList .brownButton, #compositionList .icon{
 	max-height:1.4em;
 }
-.recordingOptions{
+#recordingList .options{
 	margin-top:3%;
 }
-.recordingRightBtns{
+#recordingList .rightBtns{
 	float:right;
 }

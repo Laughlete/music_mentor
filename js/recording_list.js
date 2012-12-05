@@ -7,7 +7,8 @@ $(function(){
 			return{
 				title: "New Recording",
 				order: Recordings.nextOrder(),
-				selected: false
+				selected: false,
+				playing: false
 			}
 		},
 

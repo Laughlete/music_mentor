@@ -60,7 +60,8 @@ $(function(){
 		template: _.template($('#recording-template').html()),
 
 		events: {
-			"click .recording1stLine": "selectRecording"
+			"click .recording1stLine": "selectRecording",
+			"click .renameRecordingBtn": "renameRecording"
 		},
 
 		initialize: function(){
@@ -86,6 +87,12 @@ $(function(){
 			else{
 				this.model.select()
 			}
+		},
+
+		renameRecording: function(){
+			musicMentor.popupDialog(function(recordingName){
+				musicMentor.selectedRecording.rename(recordingName)
+			}, "New Recording Name")
 		}
 	})
 

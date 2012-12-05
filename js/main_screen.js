@@ -36,7 +36,7 @@ $(function(){
 				href: "#popup",
 				/* onComplete fires when the box finishes loading */
 				onComplete: function(){
-					//$("popupInput")[0].defaultValue = defaultText;
+					$("#popupInput")[0].defaultValue = defaultText;
 					var defaultVal = $("#popupInput")[0].defaultValue;
 					$("#popupInput").removeClass("default").addClass("default");
 					$("#popupInput").focus(function(){

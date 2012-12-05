@@ -194,10 +194,8 @@ input.default{
 
 /*recording template styling*/
 #recordingList ul li{
-	margin-top:2%;
-	margin-bottom:2%;
-
-	padding:2%;
+	margin:2%;
+	padding:3%;
 }
 #recordingList ul li.selected{
 	background-color:#829299;

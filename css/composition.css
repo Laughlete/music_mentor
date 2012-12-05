@@ -39,15 +39,21 @@ div{
 }
 
 #titles{
+	margin-top: 15px;
 	font-size:larger;
 	padding-left: 5%;
-	height: 75%;
+	margin-bottom: 20px;
 }
 
 #logo{
-	width:10%;
-	height:100%;
-	display:block;
+	background-image:url(../imgs/logo_dark.png);
+	background-size:50px 75px;
+	width:50px;
+	height:75px;
+	border:0px;
+	margin:5px;
+	margin-bottom:20px;
+	cursor:pointer;
 }
 
 #first{

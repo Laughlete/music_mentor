@@ -16,19 +16,8 @@
     <body>
         <div id="songList">
             <div id="logo"></div>
-        	<ul >
-        	</ul>
-
+        	<ul></ul>
             <img id="newSong" class="largeButton" src="../imgs/button_new_song.png" />
-			<!-- This contains the hidden content for the colorbox -->
-			<div style='display:none'>
-				<div id='songAddPopup'>
-					<input class="default" type="text" id="songNameInput" value="New Song Name" />
-					<br><br>
-					<img id="songAddSave" src="../imgs/button_save.png" class="largeButton" />
-					<img id="songAddCancel" src="../imgs/button_cancel.png" class="largeButton" />
-				</div>
-			</div>
         </div>
         <div id="songDetails">
         	<div id="recordingList">
@@ -79,6 +68,16 @@
         <script type="text/template" id="composition-template">
             <%- title %>
         </script>
+
+        <!-- This contains the hidden content for the colorbox -->
+        <div style='display:none'>
+            <div id='popup'>
+                <input class="default" type="text" id="popupInput" value="New Song Name" />
+                <br><br>
+                <img id="popupSaveButton" src="../imgs/button_save.png" class="largeButton" />
+                <img id="popupCancelButton" src="../imgs/button_cancel.png" class="largeButton" />
+            </div>
+        </div>
     </body>
     
 </html>

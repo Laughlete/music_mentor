@@ -153,64 +153,16 @@ $(function(){
 			Songs.each(this.addOne);
 		},
 
-		getSongNameDialog: function(action){
-			function checkInput(){
-				$("#songAddSave").unbind("click");
-				if($("#songNameInput").val() != $("#songNameInput").defaultValue){
-					$("#songAddSave").click(function(){
-						var songName = $("#songNameInput").val();
-						action(songName);
-						$.colorbox.close();
-					});
-				}
-			}
-			$.colorbox({
-				inline: true,
-				href: "#songAddPopup",
-				/* onComplete fires when the box finishes loading */
-				onComplete: function(){
-					var defaultVal = $("#songNameInput")[0].defaultValue;
-					$("#songNameInput").removeClass("default").addClass("default");
-					$("#songNameInput").focus(function(){
-						if($("#songNameInput").val() != $("#songNameInput").defaultValue){
-							$("#songNameInput").val("");
-							$("#songNameInput").removeClass("default");
-						}
-					});
-					/* clear the box, disable button */
-					$("#songNameInput").val(defaultVal);
-					$("#songAddSave").unbind("click");
-					
-					$("#songAddCancel").click(function(){
-						$.colorbox.close();
-					});
-					$("#songNameInput").change(function(){
-						checkInput();
-					});
-					$("#songNameInput").keydown(function(event){
-						if(event.which == 13){
-							/* enter pressed */
-							$("#songAddSave").click();
-						} else{
-							checkInput();
-						}
-					});
-					
-				}
-			});
-
-		},
-
 		createNewSong: function(){
-			this.getSongNameDialog(function(songName){
+			musicMentor.popupDialog(function(songName){
 				Songs.create({title:songName});
-			})
+			}, "New Song Name")
 		},
 
 		renameSong: function(){
-			this.getSongNameDialog(function(songName){
+			musicMentor.popupDialog(function(songName){
 				musicMentor.selectedSong.rename(songName)
-			})
+			}, "New Song Name")
 		},
 
 		duplicateSong: function(){

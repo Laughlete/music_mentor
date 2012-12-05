@@ -1,6 +1,11 @@
-	<html>
+﻿	<html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="../css/composition.css"/>
+		<script src="../js/composition_screen.js"></script>
+		<style type="text/css">
+     		 canvas { border: 0 px solid black; }
+   		</style>
+
 	</head>
 	<body>
         <div id = "topBar">
@@ -39,9 +44,10 @@
         </div>
         <div id = "compositionArea">
             <div id = "rhythm">
-            	<button id ="addRhythm"> Add Rhythm </button>
+            	<button id ="addRhythm" onclick="appendElements();"> Add Rhythm </button>
             </div>
-            <div id ="composition">
+            <div id="composition">
+            
             </div>
         </div>
     </body>

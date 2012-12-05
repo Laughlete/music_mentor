@@ -1,4 +1,4 @@
-body{
+﻿body{
 	font-family:"Google PT Sans",Verdana,sans-serif;
 }
 
@@ -61,7 +61,7 @@ body{
 	width:75%;
 	height:100%;
 	background-color:#FFF;
-	background-image:url(CompositionBackground.png);
+	background-image:url(../imgs/CompositionBackground.png);
 	overflow : auto;
 }
 
@@ -74,6 +74,17 @@ body{
 
 #addRhythm{
 	background-color:#673E18;
+	width:100%;
+	height:100%;
+	font-size:20px;
+	color:white;
+	
+}
+
+.note{
+	height:37%;
+	width:18%;
+	
 }
 
 select{
@@ -86,3 +97,5 @@ select{
 option{
 	background-color: A2B6BF;
 }
+
+

@@ -102,9 +102,12 @@ $(function(){
 			var newSelected = false
 			musicMentor.selectedSong.createRecording({title:newTitle, selected:newSelected})
 
-			/*musicMentor.selectedSong.get("recordings").each({
-				alert("test")
-			})*/
+			musicMentor.selectedSong.get("recordings").each(function(recording){
+				if(recording.get("order") >= newOrder)
+					recording.set({order: recording.get("order") + 1})
+				if(recording == musicMentor.selectedSong.get("recordings").last())
+					recording.set({order:newOrder})
+			})
 		}
 	})
 
@@ -125,16 +128,22 @@ $(function(){
 			Recordings.bind('all', this.render, this);
 
 			this.ul = this.$("ul")
-			that = this
+			recordingListViewReference = this
 		},
 
 		addOne: function(recording){
 			var view = new RecordingView({model:recording});
-			that.ul.append(view.render().el);
+			recordingListViewReference.ul.append(view.render().el);
 		},
 
 		addAll: function(){
-			Recordings.each(this.addOne)
+			for(var i=1; i<=Recordings.models.length; i++)
+			{
+				Recordings.each(function(recording){
+					if(recording.get("order") == i)
+						recordingListViewReference.addOne(recording)
+				})
+			}
 		},
 
 		createNewRecording: function(){
@@ -144,7 +153,7 @@ $(function(){
 
 		render: function(){
 			$("#recordingList ul > li").remove()
-			that.addAll()
+			recordingListViewReference.addAll()
 		}
 	})
 

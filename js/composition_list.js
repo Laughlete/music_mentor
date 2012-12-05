@@ -7,7 +7,8 @@ $(function(){
 			return{
 				title: "New Composition",
 				order: Compositions.nextOrder(),
-				selected: false
+				selected: false,
+				playing: false
 			}
 		},
 
@@ -22,6 +23,16 @@ $(function(){
 
 		clear:function(){
 			this.destoy();
+		},
+
+		select: function(){
+			musicMentor.selectedComposition = this
+			this.set({"selected":true})
+		},
+
+		unSelect: function(){
+			musicMentor.selectedComposition = undefined
+			this.set({"selected":false})
 		}
 	})
 
@@ -50,6 +61,8 @@ $(function(){
 		template: _.template($('#composition-template').html()),
 
 		events:{
+			"click .composition1stLine": "selectComposition",
+			"click .renameBtn": "renameComposition"
 			//TODO put events here
 		},
 
@@ -59,8 +72,27 @@ $(function(){
 		},
 
 		render: function(){
+			if(this.model.get("selected"))
+				this.$el.attr("class", "selected")
+			else
+				this.$el.attr("class", "unselected")
 			this.$el.html(this.template(this.model.toJSON()));
 			return this;
+		},
+
+		selectComposition: function(){
+			var selectedPrev = this.model.get("selected")
+			Compositions.each(function(composition){composition.set({"selected":false})})
+			if(selectedPrev)
+				this.model.unSelect()
+			else
+				this.model.select()
+		},
+
+		renameComposition: function(){
+			musicMentor.popupDialog(function(compositionName){
+				musicMentor.selectedComposition.rename(compositionName)
+			}, musicMentor.selectedComposition.get("title"))
 		}
 	})
 

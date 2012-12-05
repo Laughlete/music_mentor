@@ -195,7 +195,7 @@ input.default{
 }
 #recordingList .title, #compositionList .title{
 	display:inline-block;
-	width:75%;
+	width:75%;/*tweak this to make the recording and composition titles longer or shorter*/
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow:ellipsis;
@@ -206,9 +206,9 @@ input.default{
 #recordingList .brownButton, #recordingList .icon, #compositionList .brownButton, #compositionList .icon{
 	max-height:1.4em;
 }
-#recordingList .options{
+#recordingList .options, #compositionList .options{
 	margin-top:3%;
 }
-#recordingList .rightBtns{
+#recordingList .rightBtns, #compositionList .rightBtns{
 	float:right;
 }

@@ -61,10 +61,10 @@ $(function(){
 		template: _.template($('#recording-template').html()),
 
 		events: {
-			"click .recording1stLine": "selectRecording",
-			"click .renameRecordingBtn": "renameRecording",
-			"click .duplicateRecordingBtn": "duplicateRecording",
-			"click .removeRecordingBtn": "removeRecording"
+			"click .firstLine": "selectRecording",
+			"click .renameBtn": "renameRecording",
+			"click .duplicateBtn": "duplicateRecording",
+			"click .removeBtn": "removeRecording"
 		},
 
 		initialize: function(){

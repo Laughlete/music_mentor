@@ -3,15 +3,18 @@
     <head>
         <link rel="stylesheet" type="text/css" href="../css/main_screen.css"/>
 		<link rel="stylesheet" type="text/css" href="../css/colorbox.css"/>
+        <link rel="stylesheet" type="text/css" href="../css/audio_player.css"/>
         <script src="../lib/jquery-min-1-8-3.js"></script>
         <script src="../lib/jquery.colorbox-min.js"></script>
         <script src="../lib/underscore-min.js"></script>
         <script src="../lib/backbone-min.js"></script>
         <script src="../lib/backbone.localStorage-min.js"></script>
+        <script src="../lib/mediaelement-and-player.min.js"></script>
         <script src="../js/main_screen.js"></script>
         <script src="../js/recording_list.js"></script>
         <script src="../js/composition_list.js"></script>
         <script src="../js/song_list.js"></script>
+        <script src="../js/audio_player.js"></script>
     </head>
     <body>
         <div id="songList">
@@ -62,6 +65,11 @@
                     <img class="playBtn brownButton" src="../imgs/button_play_brown.png">
                     <img class="duplicateBtn brownButton" src="../imgs/button_.png">
                     <img class="removeBtn brownButton" src="../imgs/button_X_brown.png">
+                </span>
+            </div>
+            <div class="player <%if(!selected || !playing)print('hide')%>">
+                <span class="rightBtns">
+                    <img class="stopBtn brownButton" src="../imgs/button_stop_brown.png">
                 </span>
             </div>
         </script>

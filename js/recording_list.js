@@ -63,6 +63,8 @@ $(function(){
 		events: {
 			"click .firstLine": "selectRecording",
 			"click .renameBtn": "renameRecording",
+			"click .playBtn": "playRecording",
+			"click .stopBtn": "stopPlayback",
 			"click .duplicateBtn": "duplicateRecording",
 			"click .removeBtn": "removeRecording"
 		},
@@ -96,6 +98,14 @@ $(function(){
 			musicMentor.popupDialog(function(recordingName){
 				musicMentor.selectedRecording.rename(recordingName)
 			}, musicMentor.selectedRecording.get("title"))
+		},
+
+		playRecording: function(){
+			this.model.set({"playing":true})
+		},
+
+		stopPlayback: function(){
+			this.model.set({"playing":false})
 		},
 
 		duplicateRecording: function(){

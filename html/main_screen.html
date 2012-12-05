@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="../css/main_screen.css"/>
+        <link rel="stylesheet" type="text/css" href="../css/main_screen.css" media="screen"/>
 		<link rel="stylesheet" type="text/css" href="../css/colorbox.css"/>
-        <link rel="stylesheet" type="text/css" href="../css/audio_player.css"/>
         <script src="../lib/jquery-min-1-8-3.js"></script>
         <script src="../lib/jquery.colorbox-min.js"></script>
         <script src="../lib/underscore-min.js"></script>
@@ -67,7 +66,8 @@
                     <img class="removeBtn brownButton" src="../imgs/button_X_brown.png">
                 </span>
             </div>
-            <div class="player <%if(!selected || !playing)print('hide')%>">
+            <div class="audio-player <%if(!selected || !playing)print('hide')%>">
+                <audio id="audio-player" src="../sounds/All.mp3" type="audio/mp3" controls="controls"></audio>
                 <span class="rightBtns">
                     <img class="stopBtn brownButton" src="../imgs/button_stop_brown.png">
                 </span>

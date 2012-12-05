@@ -212,3 +212,49 @@ input.default{
 #recordingList .rightBtns, #compositionList .rightBtns{
 	float:right;
 }
+/* audio-player styling*/
+.audio-player,
+.audio-player div,
+.audio-player h1,
+.audio-player a,
+.audio-player img,
+.audio-player span,
+.audio-player button {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+}
+div.audio-player{
+	position:relative;
+	width:100%;
+	height:auto;
+}
+.mejs-controls .mejs-button button {
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    text-indent: -9999px;
+}
+ 
+.mejs-controls .mejs-play button,
+.mejs-controls .mejs-pause button {
+    width: 21px;
+    height: 21px;
+    top: 35px;
+    left: 135px;
+    background: transparent url(../imgs/button-pause.png) 0 0;
+}
+ 
+.mejs-controls .mejs-pause button { background-position:0 -21px; }
+ 
+.mejs-controls .mejs-mute button,
+.mejs-controls .mejs-unmute button {
+    width: 14px;
+    height: 12px;
+    top: 70px;
+    left: 140px;
+    background: transparent url(../img/mute-unmute.png) 0 0;
+}
+ 
+.mejs-controls .mejs-unmute button { background-position: 0 -12px; }

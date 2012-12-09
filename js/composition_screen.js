@@ -2,6 +2,7 @@ function insertElements(id){
 	$.colorbox({
 		inline: true,
 		href: "#popup",
+		opacity: 0.6,
 		onComplete: function(){
 			$("#popup span.note.a").click(function(){$("#noteEntry").text("a");$.colorbox.close()});
 			$("#popup span.note.b").click(function(){$("#noteEntry").text("b");$.colorbox.close()});

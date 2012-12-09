@@ -34,6 +34,7 @@ $(function(){
 			$.colorbox({
 				inline: true,
 				href: "#popup",
+				opacity: 0.6,
 				/* onComplete fires when the box finishes loading */
 				onComplete: function(){
 					$("#popupInput")[0].defaultValue = defaultText;

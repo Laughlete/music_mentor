@@ -100,6 +100,7 @@ div{
 	width:175px;
 	background: url("../imgs/blank-node.PNG") no-repeat;
 	background-size: contain;
+	cursor: pointer;
 }
 
 .note.a{

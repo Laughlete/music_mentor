@@ -16,7 +16,7 @@ $(function(){
 		},
 
 		initialize: function(){
-			if(!this.get("title"))
+			if(!this.get("title") || this.get("title").length == 0)
 				this.set({"title": this.defaults.title})
 		},
 
@@ -229,8 +229,7 @@ $(function(){
 		},
 
 		createNewRecording: function(){
-			var recordingName = new Date();
-			musicMentor.selectedSong.createRecording({title: recordingName})
+			musicMentor.selectedSong.createRecording()
 		},
 
 		render: function(){

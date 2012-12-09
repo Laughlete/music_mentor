@@ -8,7 +8,10 @@ $(function(){
 				title: "New Composition",
 				order: Compositions.nextOrder(),
 				selected: false,
-				playing: false
+				playing: false,
+				paused: false,
+				clip: undefined,
+				constantlyRefreshing: false
 			}
 		},
 
@@ -155,8 +158,7 @@ $(function(){
 			}
 		},
 		createNewComposition: function(){
-			var compositionName = new Date();
-			musicMentor.selectedSong.createComposition({title: compositionName})
+			musicMentor.selectedSong.createComposition()
 		},
 
 		render: function(){

@@ -96,39 +96,40 @@ div{
 
 .note{
 	display:inline-block;
-	height:173px;
-	width:175px;
-	background: url("../imgs/blank-node.PNG") no-repeat;
+	height:159px;
+	width:144px;
+	background: url("../imgs/note-blank.png") no-repeat;
 	background-size: contain;
 	cursor: pointer;
+	margin: 10px 5px 5px;
 }
 
 .note.a{
-	background-image: url("../imgs/Anew.png");
+	background-image: url("../imgs/note-a.png");
 }
 
 .note.b{
-	background-image: url("../imgs/Bnew.png");
+	background-image: url("../imgs/note-b.png");
 }
 
 .note.c{
-	background-image: url("../imgs/Cnew.png");
+	background-image: url("../imgs/note-c.png");
 }
 
 .note.d{
-	background-image: url("../imgs/Dnew.png");
+	background-image: url("../imgs/note-d.png");
 }
 
 .note.e{
-	background-image: url("../imgs/Enew.png");
+	background-image: url("../imgs/note-e.png");
 }
 
 .note.f{
-	background-image: url("../imgs/Fnew.png");
+	background-image: url("../imgs/note-f.png");
 }
 
 .note.g{
-	background-image: url("../imgs/Gnew.png");
+	background-image: url("../imgs/note-g.png");
 }
 
 

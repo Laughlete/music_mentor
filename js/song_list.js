@@ -198,14 +198,17 @@ $(function(){
 		},
 
 		removeSong: function(){
-			var removeOrder = musicMentor.selectedSong.get("order")
-			Songs.each(function(song){
-				if(song.get("order") > removeOrder)
-					song.set({"order":song.get("order") - 1})
-			})
+			var r = confirm("Are you sure you want to delete this song?");
+			if(r==true){
+				var removeOrder = musicMentor.selectedSong.get("order")
+				Songs.each(function(song){
+					if(song.get("order") > removeOrder)
+						song.set({"order":song.get("order") - 1})
+				})
 
-			musicMentor.selectedSong.clear()
-			musicMentor.setSelectedSong(undefined)
+				musicMentor.selectedSong.clear()
+				musicMentor.setSelectedSong(undefined)
+			}
 		}
 	})
 

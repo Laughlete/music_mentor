@@ -114,13 +114,16 @@ $(function(){
 		},
 
 		removeComposition: function(){
-			var removeOrder = this.model.get("order")
-			musicMentor.selectedSong.get("compositions").each(function(composition){
-				if(composition.get("order") > removeOrder)
-					composition.set({"order": composition.get("order") - 1 })
-			})
-			this.model.clear()
-			musicMentor.selectedComposition = undefined
+			var r = confirm("Are you sure you want to delete this composition?");
+			if(r == true){
+				var removeOrder = this.model.get("order")
+				musicMentor.selectedSong.get("compositions").each(function(composition){
+					if(composition.get("order") > removeOrder)
+						composition.set({"order": composition.get("order") - 1 })
+				})
+				this.model.clear()
+				musicMentor.selectedComposition = undefined
+			}
 		}
 	})
 

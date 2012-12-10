@@ -183,13 +183,16 @@ $(function(){
 		},
 
 		removeRecording: function(){
-			var removeOrder = this.model.get("order")
-			musicMentor.selectedSong.get("recordings").each(function(recording){
-				if(recording.get("order") > removeOrder)
-					recording.set({"order":recording.get("order") - 1})
-			})
-			this.model.clear()
-			musicMentor.selectedRecording = undefined
+			var r = confirm("Are you sure you want to delete this recording?");
+			if(r == true){
+				var removeOrder = this.model.get("order")
+				musicMentor.selectedSong.get("recordings").each(function(recording){
+					if(recording.get("order") > removeOrder)
+						recording.set({"order":recording.get("order") - 1})
+				})
+				this.model.clear()
+				musicMentor.selectedRecording = undefined;
+			}
 		}
 	})
 

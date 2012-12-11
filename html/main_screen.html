@@ -54,7 +54,7 @@
             <div class="firstLine">
                 <img class="icon" src="../imgs/image_microphone.png">
                 <span class="title"><%- title %></span>
-                <img class="arrowBtn brownButton" src="../imgs/button_arrow_down_brown.png">
+                <img class="arrowBtn brownButton" src="<%-selected === true ? '../imgs/button_arrow_up_brown.png' : '../imgs/button_arrow_down_brown.png'%>">
             </div>
             <div class="options <%if(!selected || playing)print("hide")%>">
                 <img class="renameBtn brownButton" src="../imgs/button_rename.png">
@@ -85,7 +85,7 @@
             <div class="composition1stLine">
                 <img class="icon" src="../imgs/image_cleff.png">
                 <a class="title" href="CompositionScreen.html?songName=<%-musicMentor.selectedSong === undefined? "" : musicMentor.selectedSong.get("title")%>&compositionName=<%-title%>"><%- title %></a>
-                <img class="arrowBtn brownButton" src="../imgs/button_arrow_down_brown.png">
+                <img class="arrowBtn brownButton" src="<%-selected === true ? '../imgs/button_arrow_up_brown.png' : '../imgs/button_arrow_down_brown.png'%>">
             </div>
             <div class="options <%if(!selected || playing)print("hide")%>">
                 <img class="renameBtn brownButton" src="../imgs/button_rename.png">

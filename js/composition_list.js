@@ -11,7 +11,8 @@ $(function(){
 				playing: false,
 				paused: false,
 				clip: undefined,
-				constantlyRefreshing: false
+				constantlyRefreshing: false,
+				currentTime: 0
 			}
 		},
 
@@ -29,12 +30,56 @@ $(function(){
 			this.destroy();
 		},
 
+		startPlayback:function(){
+			if(this.get("clip") === undefined)
+				this.set({"clip": new Audio("../sounds/All.mp3")})
+			this.get("clip").play()
+			this.set({"playing":true,"paused":false})
+			this.startRefreshing();
+		},
+
+		pausePlayback:function(){
+			this.get("clip").pause()
+			this.set({"paused":true})
+			this.stopRefreshing()
+		},
+
+		movePlayback:function(offset){
+			var newTime = this.get("clip").currentTime + offset
+			if(newTime < 0)
+				this.get("clip").currentTime = 0
+			else if(newTime > this.get("clip").duration)
+				stopPlayback()
+			else
+				this.get("clip").currentTime = newTime
+			this.set({"currentTime":newTime})
+		},
+
+		startRefreshing:function(){
+			var timeout = 1000
+			var that = this
+			var toDo = function(){
+				if(that !== undefined)
+					that.set({"currentTime":that.get("clip").currentTime})
+				if(that != undefined && that.get("constantlyRefreshing")){
+					setTimeout(toDo, timeout)
+				}
+			}
+			this.set({"constantlyRefreshing": true})
+			setTimeout(toDo, timeout)
+		},
+
+		stopRefreshing:function(){
+			this.set({"constantlyRefreshing": false})
+		},
+
 		stopPlayback:function(){
 			if(this.get('clip') !== undefined){
 				this.get('clip').pause()
 				this.get('clip').currentTime = 0
 			}
-			this.set({playing: false, paused:false, constantlyRefreshing: false})
+			stopRefreshing()
+			this.set({playing: false, paused:false})
 		},
 
 		select: function(){
@@ -114,6 +159,26 @@ $(function(){
 			}, musicMentor.selectedComposition.get("title"))
 		},
 
+		startPlayback: function(){
+			this.model.startPlayback()
+		},
+
+		rewindPlayback: function(){
+			this.model.movePlayback(-10)
+		},
+
+		pausePlayback: function(){
+			this.model.pausePlayback()
+		},
+
+		fastForwardPlayback: function(){
+			this.model.movePlayback(30)
+		},
+
+		stopPlayback: function(){
+			this.model.stopPlayback()
+		},
+
 		duplicateComposition: function(){
 			var newOrder = musicMentor.selectedComposition.get("order")+1;
 			var newTitle = "copy of " + musicMentor.selectedComposition.get("title")
@@ -187,4 +252,5 @@ $(function(){
 	})
 
 	CompositionsView = new CompositionListView
+	musicMentor.compsitionsView = CompositionsView
 })

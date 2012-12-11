@@ -143,5 +143,16 @@ select{
 option{
 	background-color: A2B6BF;
 }
-
-
+/*playback css*/
+.hide{
+	display:none;
+}
+.brownButton{/*change this to make playback controls change*/
+	max-height:1.4em;
+}
+.rightBtns{
+	float:right;
+}
+#playback{
+	/*I (Garret) don't know what to put here that won't break the page*/
+}

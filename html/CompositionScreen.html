@@ -4,6 +4,10 @@
 		<link rel="stylesheet" type="text/css" href="../css/colorbox.css"/>
         <script src="../lib/jquery-min-1-8-3.js"></script>
         <script src="../lib/jquery.colorbox-min.js"></script>
+        <script src="../lib/underscore-min.js"></script>
+        <script src="../lib/backbone-min.js"></script>
+        <script src="../lib/backbone.localStorage-min.js"></script>
+        <script src="../js/composition.js"></script>
 		<script src="../js/composition_screen.js"></script>
 		<style type="text/css">
      		 canvas { border: 0 px solid black; }
@@ -13,8 +17,7 @@
 	<body>
         <div id = "topBar">
         	<div id="third">
-                <div id = "playback">
-                	<img src="../imgs/button_play.png" height= "50%" onClick="playPressed()">   
+                <div id = "playback">  
                 </div>
                 <div id = "instruments">
                 	<select>
@@ -65,5 +68,28 @@
 				<span style="display:none" id="noteEntry"></span>
             </div>
         </div>
+        <!--playback controls template -->
+        <script type="text/template" id="playback-template">
+            <div class="playButtonOnly<%if(!stopped)print(' hide')%>">
+                <span class="rightBtns">
+                    <img class="playBtn brownButton" src="../imgs/button_play_brown.png">
+                </span>
+            </div>
+            <div class="playbackControls<%if(stopped)print(' hide')%>">
+                <span class="brownButton">
+                    <%if(clip !== undefined && Math.round(clip.duration) > 0){print(Math.round(clip.currentTime)+"/"+Math.round(clip.duration))}else{print("&nbsp;")}%>
+                </span>
+                <span class="rightBtns">
+                    <img class="rewBtn brownButton" src="../imgs/button_rewind.png">
+                    <%if(paused){%>
+                        <img class="playBtn brownButton" src="../imgs/button_play_brown.png">
+                    <%}else{%>
+                        <img class="pauseBtn brownButton" src="../imgs/button_pause.png">
+                    <%}%>
+                    <img class="fwdBtn brownButton" src="../imgs/button_forward.png">
+                    <img class="stopBtn brownButton" src="../imgs/button_stop_brown.png">
+                </span>
+            </div>
+        </script>
     </body>
 </html>

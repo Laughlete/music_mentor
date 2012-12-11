@@ -6,8 +6,7 @@ $(function(){
 		defaults: function(){
 			return{
 				title: "New Composition",
-				order: Compositions.nextOrder(),
-				selected: false,
+				stopped: true,
 				playing: false,
 				paused: false,
 				clip: undefined,
@@ -35,6 +34,7 @@ $(function(){
 				this.set({"clip": new Audio("../sounds/All.mp3")})
 			this.get("clip").play()
 			this.set({"playing":true,"paused":false})
+			this.set({"stopped":false})
 			this.startRefreshing();
 		},
 
@@ -49,7 +49,7 @@ $(function(){
 			if(newTime < 0)
 				this.get("clip").currentTime = 0
 			else if(newTime > this.get("clip").duration)
-				this.stopPlayback()
+				stopPlayback()
 			else
 				this.get("clip").currentTime = newTime
 			this.set({"currentTime":newTime})
@@ -79,7 +79,7 @@ $(function(){
 				this.get('clip').currentTime = 0
 			}
 			this.stopRefreshing()
-			this.set({playing: false, paused:false})
+			this.set({playing: false, paused:false, stopped:true})
 		},
 
 		select: function(){
@@ -94,52 +94,29 @@ $(function(){
 		}
 	})
 
-	CompositionList = Backbone.Collection.extend({
-
-		model: Composition,
-
-		localStorage: new Store("compositions-backbone"),
-
-		nextOrder: function(){
-			if(!this.length) return 1;
-			return this.last().get('order') + 1;
-		},
-
-		comparator: function(composition){
-			return composition.get('order');
-		}
-	})
-
-	Compositions = new CompositionList;
+	CompositionModel = new Composition
 
 	CompositionView = Backbone.View.extend({
 
-		tagName: "li",
+		el: $("#playback"),
 
-		template: _.template($('#composition-template').html()),
+		template: _.template($('#playback-template').html()),
 
 		events:{
-			"click .composition1stLine": "selectComposition",
-			"click .renameBtn": "renameComposition",
 			"click .playBtn": "startPlayback",
 			"click .rewBtn": "rewindPlayback",
 			"click .pauseBtn": "pausePlayback",
 			"click .fwdBtn": "fastForwardPlayback",
 			"click .stopBtn": "stopPlayback",
-			"click .duplicateBtn": "duplicateComposition",
-			"click .removeBtn": "removeComposition"
 		},
 
 		initialize: function(){
 			this.model.bind('change', this.render, this);
 			this.model.bind('destroy', this.remove, this);
+			this.render()
 		},
 
 		render: function(){
-			if(this.model.get("selected"))
-				this.$el.attr("class", "selected")
-			else
-				this.$el.attr("class", "unselected")
 			this.$el.html(this.template(this.model.toJSON()));
 			return this;
 		},
@@ -207,50 +184,5 @@ $(function(){
 		}
 	})
 
-	CompositionListView = Backbone.View.extend({
-
-		el: $("#compositionList"),
-
-		events:{
-			"click #newComposition": "createNewComposition"
-		},
-
-		initialize: function(){
-			this.input = this.$("#newComposition");
-
-			Compositions.bind('add', this.addOne, this);
-			Compositions.bind('reset', this.addAll, this);
-			Compositions.bind('all', this.render, this);
-
-			this.ul = this.$("ul")
-			compositionListViewReference = this
-		},
-
-		addOne: function(composition){
-			var view = new CompositionView({model:composition});
-			compositionListViewReference.ul.append(view.render().el);
-		},
-
-		addAll: function(){
-			for(var i=1; i<=Compositions.models.length; i++)
-			{
-				Compositions.each(function(composition){
-					if(composition.get("order") == i)
-						compositionListViewReference.addOne(composition)
-				})
-			}
-		},
-		createNewComposition: function(){
-			musicMentor.selectedSong.createComposition()
-		},
-
-		render: function(){
-			$("#compositionList ul > li").remove()
-			compositionListViewReference.addAll()
-		}
-
-	})
-
-	CompositionsView = new CompositionListView
-	musicMentor.compsitionsView = CompositionsView
+	CompositionPlaybackView = new CompositionView({model:CompositionModel})
 })

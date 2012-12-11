@@ -223,7 +223,7 @@ $(function(){
 			Compositions.bind('all', this.render, this);
 
 			this.ul = this.$("ul")
-			compositionListViewReference = this
+			compositionListViewReference = this;
 		},
 
 		addOne: function(composition){
@@ -241,7 +241,8 @@ $(function(){
 			}
 		},
 		createNewComposition: function(){
-			musicMentor.selectedSong.createComposition()
+			musicMentor.selectedSong.createComposition();
+			window.location = $("#compositionList a.title").last().attr("href");
 		},
 
 		render: function(){

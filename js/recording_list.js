@@ -34,7 +34,7 @@ $(function(){
 				this.get("clip").pause()
 				this.get("clip").currentTime = 0
 			}
-			this.set({"selected":false,"playing":false,"paused":false,"constantlyRefreshing":false})			
+			this.set({"playing":false,"paused":false,"constantlyRefreshing":false})			
 		},
 
 		select: function(){
@@ -44,7 +44,8 @@ $(function(){
 
 		unSelect: function(){
 			musicMentor.selectedRecording = undefined
-			this.stopPlayback()			
+			this.stopPlayback()	
+			this.set({selected: false})		
 		}
 	})
 
@@ -96,6 +97,19 @@ $(function(){
 				this.$el.attr("class", "unselected")
 			this.$el.html(this.template(this.model.toJSON()));
 			return this;
+		},
+
+		selectRecording: function(){
+			var selectedPrev = this.model.get("selected")
+			Recordings.each(function(recording){
+				recording.unSelect()
+			})
+			if(selectedPrev){
+				this.model.unSelect()
+			}
+			else{
+				this.model.select()
+			}
 		},
 
 		renameRecording: function(){
@@ -166,20 +180,6 @@ $(function(){
 				if(recording == musicMentor.selectedSong.get("recordings").last())
 					recording.set({order:newOrder})
 			})
-		},
-
-		selectRecording: function(){
-			var selectedPrev = this.model.get("selected")
-			Recordings.each(function(recording){
-				recording.unSelect()
-			})
-			if(selectedPrev){
-				this.model.unSelect()
-				this.stopPlayback()
-			}
-			else{
-				this.model.select()
-			}
 		},
 
 		removeRecording: function(){

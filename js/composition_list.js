@@ -21,11 +21,20 @@ $(function(){
 		},
 
 		rename: function(newTitle){
-			this.save({"title": newTitle})
+			this.save({title: newTitle})
 		},
 
 		clear:function(){
+			this.stopPlayback()
 			this.destroy();
+		},
+
+		stopPlayback:function(){
+			if(this.get('clip') !== undefined){
+				this.get('clip').pause()
+				this.get('clip').currentTime = 0
+			}
+			this.set({playing: false, paused:false, constantlyRefreshing: false})
 		},
 
 		select: function(){
@@ -35,6 +44,7 @@ $(function(){
 
 		unSelect: function(){
 			musicMentor.selectedComposition = undefined
+			this.stopPlayback()
 			this.set({"selected":false})
 		}
 	})
@@ -66,6 +76,11 @@ $(function(){
 		events:{
 			"click .composition1stLine": "selectComposition",
 			"click .renameBtn": "renameComposition",
+			"click .playBtn": "startPlayback",
+			"click .rewBtn": "rewindPlayback",
+			"click .pauseBtn": "pausePlayback",
+			"click .fwdBtn": "fastForwardPlayback",
+			"click .stopBtn": "stopPlayback",
 			"click .duplicateBtn": "duplicateComposition",
 			"click .removeBtn": "removeComposition"
 		},

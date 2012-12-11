@@ -95,6 +95,21 @@
                     <img class="removeBtn brownButton" src="../imgs/button_X_brown.png">
                 </span>
             </div>
+            <div class="player <%if(!selected || !playing)print("hide")%>">
+                <span class="brownButton">
+                    <%if(clip !== undefined && Math.round(clip.duration) > 0){print(Math.round(clip.currentTime)+"/"+Math.round(clip.duration))}else{print("&nbsp;")}%>
+                </span>
+                <span class="rightBtns">
+                    <img class="rewBtn brownButton" src="../imgs/button_rewind.png">
+                    <%if(paused){%>
+                        <img class="playBtn brownButton" src="../imgs/button_play_brown.png">
+                    <%}else{%>
+                        <img class="pauseBtn brownButton" src="../imgs/button_pause.png">
+                    <%}%>
+                    <img class="fwdBtn brownButton" src="../imgs/button_forward.png">
+                    <img class="stopBtn brownButton" src="../imgs/button_stop_brown.png">
+                </span>
+            </div>
         </script>
 
         <!-- This contains the hidden content for the colorbox -->

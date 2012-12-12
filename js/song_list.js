@@ -142,7 +142,9 @@ $(function(){
 
 			this.ul = this.$("ul")
 			songListViewReference = this
-			Songs.create({title:"New Song 1"});
+			var newSong = Songs.create({title:"New Song 1"});
+			newSong.get("compositions").create()
+			newSong.get("compositions").create({title:"New Compositions 2"})
 		},
 
 		render: function(){

@@ -204,7 +204,7 @@ input.default{
 	float:right;
 }
 #recordingList .brownButton, #recordingList .icon, #compositionList .brownButton, #compositionList .icon{
-	max-height:1.4em;
+	max-height:2em;/*Make buttons bigger*/
 }
 #recordingList .options, #compositionList .options, #recordingList .player, #compositionList .player{
 	margin-top:3%;

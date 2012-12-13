@@ -24,7 +24,7 @@ div{
 }
 
 #playback{
-	height: 75%;
+	height: 58%;
 	padding-left:7%;
 }
 
@@ -185,11 +185,11 @@ option{
 	display:none;
 }
 .brownButton{/*change this to make playback controls change*/
-	max-height:1.4em;
+	max-height:2.0em;
 }
 .rightBtns{
 	float:right;
+	padding-right:1.0em;
+	padding-top:.8em;
 }
-#playback{
-	/*I (Garret) don't know what to put here that won't break the page*/
-}
+

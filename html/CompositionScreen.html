@@ -34,14 +34,14 @@
                     </div>
                     <div id = "songStructure">
                     <select>
-                        <option> Verse </option>
-                        <option> Chorus </option>
-                        <option> Bridge </option>
+                        <option>Verse</option>
+                        <option>Chorus</option>
+                        <option>Bridge</option>
                     </select>
                     <select>
-                        <option> VCVCBC </option>
-                        <option> VVV </option>
-                        <option> VCVCVC </option>
+                        <option>VCVCBC</option>
+                        <option>VVV</option>
+                        <option>VCVCVC</option>
                     </select>
                     </div>
                 </div>
@@ -50,7 +50,7 @@
         </div>
         <div id = "compositionArea">
             <div id = "rhythm">
-            	<button id ="addRhythm" onClick="appendElements();"> Add Rhythm </button>
+            	<button id ="addRhythm" onClick="appendElements();">Add Rhythm</button>
             </div>
             <div id="composition">
             
@@ -67,25 +67,25 @@
                 <span class="note f"></span>
                 <span class="note g"></span>
 				<span style="display:none" id="noteEntry"></span>
-                <select id = "variations">
-                	<option> major </option>
-                	<option> minor </option>
-                    <option> suspended 2nd </option>
-                    <option> suspended 4th </option>
-                    <option> minor seventh </option>
-                    <option> major seventh </option>
-                    <option> diminished </option>
+                <select id="variations">
+                	<option value="">major</option>
+                	<option value="min">minor</option>
+                    <option value="sus2">suspended 2nd</option>
+                    <option value="sus4">suspended 4th</option>
+                    <option value="7">minor seventh</option>
+                    <option value="M7">major seventh</option>
+                    <option value="dim">diminished</option>
                 </select>
             </div>
         </div>
         <!--playback controls template -->
         <script type="text/template" id="playback-template">
-            <div class="playButtonOnly<%if(!stopped)print(' hide')%>">
+            <div class="playButtonOnly<%if(!stopped)print(" hide")%>">
                 <span class="rightBtns">
                     <img class="playBtn brownButton" src="../imgs/button_play_brown.png">
                 </span>
             </div>
-            <div class="playbackControls<%if(stopped)print(' hide')%>">
+            <div class="playbackControls<%if(stopped)print(" hide")%>">
                 <span class="brownButton">
                     <%if(clip !== undefined && Math.round(clip.duration) > 0){print(Math.round(clip.currentTime)+"/"+Math.round(clip.duration))}else{print("&nbsp;")}%>
                 </span>

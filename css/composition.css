@@ -113,33 +113,61 @@ div{
 	margin: 10px 5px 5px;
 }
 
-.note.a{
-	background-image: url("../imgs/note-a.png");
-}
+.note.a{	background-image: url("../imgs/note-a.png");}
+.note.amin{	background-image: url("../imgs/note-a-min.png"); }
+.note.asus2{	background-image: url("../imgs/note-a-sus2.png"); }
+.note.asus4{ background-image: url("../imgs/note-a-sus4.png"); }
+.note.a7{ background-image: url("../imgs/note-a7.png"); }
+.note.aM7{ background-image: url("../imgs/note-aM7.png"); }
+.note.adim{ background-image: url("../imgs/note-a-dim.png");}
 
-.note.b{
-	background-image: url("../imgs/note-b.png");
-}
+.note.b{background-image: url("../imgs/note-b.png");}
+.note.bmin{background-image: url("../imgs/note-b-min.png");}
+.note.bsus2{background-image: url("../imgs/note-b-sus2.png");}
+.note.bsus4{background-image: url("../imgs/note-b-sus4.png");}
+.note.b7{background-image: url("../imgs/note-b7.png");}
+.note.bM7{background-image: url("../imgs/note-bM7.png");}
+.note.bdim{background-image: url("../imgs/note-b-dim.png");}
 
-.note.c{
-	background-image: url("../imgs/note-c.png");
-}
+.note.c{background-image: url("../imgs/note-c.png");}
+.note.cmin{background-image: url("../imgs/note-c-min.png");}
+.note.csus2{background-image: url("../imgs/note-c-sus2.png");}
+.note.csus4{background-image: url("../imgs/note-c-sus4.png");}
+.note.c7{background-image: url("../imgs/note-c7.png");}
+.note.cM7{background-image: url("../imgs/note-cM7.png");}
+.note.cdim{background-image: url("../imgs/note-c-dim.png");}
 
-.note.d{
-	background-image: url("../imgs/note-d.png");
-}
+.note.d{background-image: url("../imgs/note-d.png");}
+.note.dmin{background-image: url("../imgs/note-d-min.png");}
+.note.dsus2{background-image: url("../imgs/note-d-sus2.png");}
+.note.dsus4{background-image: url("../imgs/note-d-sus4.png");}
+.note.d7{background-image: url("../imgs/note-d7.png");}
+.note.dM7{background-image: url("../imgs/note-dM7.png");}
+.note.ddim{background-image: url("../imgs/note-d-dim.png");}
 
-.note.e{
-	background-image: url("../imgs/note-e.png");
-}
+.note.e{background-image: url("../imgs/note-e.png");}
+.note.emin{background-image: url("../imgs/note-e-min.png");}
+.note.esus2{background-image: url("../imgs/note-e-sus2.png");}
+.note.esus4{background-image: url("../imgs/note-e-sus4.png");}
+.note.e7{background-image: url("../imgs/note-e7.png");}
+.note.eM7{background-image: url("../imgs/note-eM7.png");}
+.note.edim{background-image: url("../imgs/note-e-dim.png");}
 
-.note.f{
-	background-image: url("../imgs/note-f.png");
-}
+.note.f{background-image: url("../imgs/note-f.png");}
+.note.fmin{background-image: url("../imgs/note-f-min.png");}
+.note.fsus2{background-image: url("../imgs/note-f-sus2.png");}
+.note.fsus4{background-image: url("../imgs/note-f-sus4.png");}
+.note.f7{background-image: url("../imgs/note-f7.png");}
+.note.fM7{background-image: url("../imgs/note-fM7.png");}
+.note.fdim{background-image: url("../imgs/note-f-dim.png");}
 
-.note.g{
-	background-image: url("../imgs/note-g.png");
-}
+.note.g{background-image: url("../imgs/note-g.png");}
+.note.gmin{background-image: url("../imgs/note-g-min.png");}
+.note.gsus2{background-image: url("../imgs/note-g-sus2.png");}
+.note.gsus4{background-image: url("../imgs/note-g-sus4.png");}
+.note.g7{background-image: url("../imgs/note-g7.png");}
+.note.gM7{background-image: url("../imgs/note-gM7.png");}
+.note.gdim{background-image: url("../imgs/note-g-dim.png");}
 
 
 select{

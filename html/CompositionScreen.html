@@ -3,103 +3,103 @@
 		<link rel="shortcut icon" href="../imgs/favicon.ico" />
 		<link rel="stylesheet" type="text/css" href="../css/composition.css"/>
 		<link rel="stylesheet" type="text/css" href="../css/colorbox.css"/>
-        <script src="../lib/jquery-min-1-8-3.js"></script>
-        <script src="../lib/jquery.colorbox-min.js"></script>
-        <script src="../lib/underscore-min.js"></script>
-        <script src="../lib/backbone-min.js"></script>
-        <script src="../lib/backbone.localStorage-min.js"></script>
-        <script src="../js/composition.js"></script>
+		<script src="../lib/jquery-min-1-8-3.js"></script>
+		<script src="../lib/jquery.colorbox-min.js"></script>
+		<script src="../lib/underscore-min.js"></script>
+		<script src="../lib/backbone-min.js"></script>
+		<script src="../lib/backbone.localStorage-min.js"></script>
+		<script src="../js/composition.js"></script>
 		<script src="../js/composition_screen.js"></script>
 		<style type="text/css">
-     		 canvas { border: 0 px solid black; }
-   		</style>
+			canvas { border: 0 px solid black; }
+		</style>
 
 	</head>
 	<body>
-        <div id = "topBar">
-        	<div id="third">
-                <div id = "playback">  
-                </div>
-                <div id = "instruments">
-                	<select>
-                        <option> Piano </option>
-                        <option> Guitar </option>
-                    </select>
-                </div>
-              </div>
-        	<div id = "first">
-                <div id = "second">
-                    <div id = "titles">
-                    	Song Title Composition Title
-                    </div>
-                    <div id = "songStructure">
-                    <select>
-                        <option>Verse</option>
-                        <option>Chorus</option>
-                        <option>Bridge</option>
-                    </select>
-                    <select>
-                        <option>VCVCBC</option>
-                        <option>VVV</option>
-                        <option>VCVCVC</option>
-                    </select>
-                    </div>
-                </div>
-                <div id = "logo" onClick="window.location = 'main_screen.html'"></div>
-            </div>
-        </div>
-        <div id = "compositionArea">
-            <div id = "rhythm">
-            	<button id ="addRhythm" onClick="appendElements();">Add Rhythm</button>
-            </div>
-            <div id="composition">
-            
-            </div>
-        </div>
+		<div id = "topBar">
+			<div id="third">
+				<div id = "playback">  
+				</div>
+				<div id = "instruments">
+					<select>
+						<option> Piano </option>
+						<option> Guitar </option>
+					</select>
+				</div>
+			</div>
+			<div id = "first">
+				<div id = "second">
+					<div id = "titles">
+						Song Title Composition Title
+					</div>
+					<div id = "songStructure">
+					<select>
+						<option>Verse</option>
+						<option>Chorus</option>
+						<option>Bridge</option>
+					</select>
+					<select>
+						<option>VCVCBC</option>
+						<option>VVV</option>
+						<option>VCVCVC</option>
+					</select>
+					</div>
+				</div>
+				<div id = "logo" onClick="window.location = 'main_screen.html'"></div>
+			</div>
+		</div>
+		<div id = "compositionArea">
+			<div id = "rhythm">
+				<button id ="addRhythm" onClick="appendElements();">Add Rhythm</button>
+			</div>
+			<div id="composition">
+			
+			</div>
+		</div>
 		<!-- This contains the hidden content for the colorbox -->
-        <div style='display:none'>
-            <div id='popup'>
-                <span class="note a"></span>
-                <span class="note b"></span>
-                <span class="note c"></span>
-                <span class="note d"></span>
-                <span class="note e"></span>
-                <span class="note f"></span>
-                <span class="note g"></span>
+		<div style='display:none'>
+			<div id='popup'>
+				<span class="note a"></span>
+				<span class="note b"></span>
+				<span class="note c"></span>
+				<span class="note d"></span>
+				<span class="note e"></span>
+				<span class="note f"></span>
+				<span class="note g"></span>
 				<span style="display:none" id="noteEntry"></span>
-                <select id="variations">
-                	<option value="">major</option>
-                	<option value="min">minor</option>
-                    <option value="sus2">suspended 2nd</option>
-                    <option value="sus4">suspended 4th</option>
-                    <option value="7">minor seventh</option>
-                    <option value="M7">major seventh</option>
-                    <option value="dim">diminished</option>
-                </select>
-            </div>
-        </div>
-        <!--playback controls template -->
-        <script type="text/template" id="playback-template">
-            <div class="playButtonOnly<%if(!stopped)print(" hide")%>">
-                <span class="rightBtns">
-                    <img class="playBtn brownButton" src="../imgs/button_play_brown.png">
-                </span>
-            </div>
-            <div class="playbackControls<%if(stopped)print(" hide")%>">
-                <span class="brownButton">
-                    <%if(clip !== undefined && Math.round(clip.duration) > 0){print(Math.round(clip.currentTime)+"/"+Math.round(clip.duration))}else{print("&nbsp;")}%>
-                </span>
-                <span class="rightBtns">
-                    <img class="rewBtn brownButton" src="../imgs/button_rewind.png">
-                    <%if(paused){%>
-                        <img class="playBtn brownButton" src="../imgs/button_play_brown.png">
-                    <%}else{%>
-                        <img class="pauseBtn brownButton" src="../imgs/button_pause.png">
-                    <%}%>
-                    <img class="fwdBtn brownButton" src="../imgs/button_forward.png">
-                    <img class="stopBtn brownButton" src="../imgs/button_stop_brown.png">
-                </span>
-            </div>
-        </script>
-    </body>
+				<select id="variations">
+					<option value="">major</option>
+					<option value="min">minor</option>
+					<option value="sus2">suspended 2nd</option>
+					<option value="sus4">suspended 4th</option>
+					<option value="7">minor seventh</option>
+					<option value="M7">major seventh</option>
+					<option value="dim">diminished</option>
+				</select>
+			</div>
+		</div>
+		<!--playback controls template -->
+		<script type="text/template" id="playback-template">
+			<div class="playButtonOnly<%if(!stopped)print(" hide")%>">
+				<span class="rightBtns">
+					<img class="playBtn brownButton" src="../imgs/button_play_brown.png">
+				</span>
+			</div>
+			<div class="playbackControls<%if(stopped)print(" hide")%>">
+				<span class="brownButton">
+					<%if(clip !== undefined && Math.round(clip.duration) > 0){print(Math.round(clip.currentTime)+"/"+Math.round(clip.duration))}else{print("&nbsp;")}%>
+				</span>
+				<span class="rightBtns">
+					<img class="rewBtn brownButton" src="../imgs/button_rewind.png">
+					<%if(paused){%>
+						<img class="playBtn brownButton" src="../imgs/button_play_brown.png">
+					<%}else{%>
+						<img class="pauseBtn brownButton" src="../imgs/button_pause.png">
+					<%}%>
+					<img class="fwdBtn brownButton" src="../imgs/button_forward.png">
+					<img class="stopBtn brownButton" src="../imgs/button_stop_brown.png">
+				</span>
+			</div>
+		</script>
+	</body>
 </html>

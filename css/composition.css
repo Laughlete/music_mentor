@@ -103,6 +103,10 @@ div{
 	
 }
 
+#popup{
+	text-align: center;
+}
+
 .note{
 	display:inline-block;
 	height:159px;
